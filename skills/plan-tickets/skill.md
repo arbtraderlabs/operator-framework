@@ -4,6 +4,13 @@
 **Purpose:** Decompose an approved specification into small, ordered,
 independently executable tickets.
 
+## Why this matters
+
+Tickets create bounded execution units small enough for lower-cost agents
+and human review. They are also searchable history: on a long-lived project,
+"did we already add this, and why" is answered by the ticket trail — not by
+memory or chat scrollback.
+
 ## When to use
 
 After [`skills/write-spec/skill.md`](../write-spec/skill.md) has produced a spec ready for
@@ -20,7 +27,9 @@ execution.
    enough to execute and verify in one pass (see
    [`docs/TICKET_SYSTEM.md#what-makes-a-good-ticket`](../../docs/TICKET_SYSTEM.md#what-makes-a-good-ticket)).
 2. **Write each ticket** using [`templates/ticket.md`](../../templates/ticket.md),
-   with specific, checkable acceptance criteria — not vague descriptions.
+   with specific, checkable acceptance criteria — not vague descriptions —
+   and assign each a severity (see
+   [`docs/TICKET_SYSTEM.md#severity`](../../docs/TICKET_SYSTEM.md#severity)).
 3. **Declare real dependencies** between tickets so execution order is
    explicit, not assumed.
 4. **Assign sequential ticket numbers** (`TCK-001`, `TCK-002`, ...) — see

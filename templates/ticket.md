@@ -10,6 +10,9 @@ the full lifecycle and conventions.
 ## TCK-XXX: <Short, specific title>
 
 **Status:** backlog | in-progress | review | done
+**Severity:** S0 | S1 | S2 | S3 (see
+[`docs/TICKET_SYSTEM.md#severity`](../docs/TICKET_SYSTEM.md#severity);
+default S2)
 **Spec reference:** <relative link to the spec section this implements>
 **Depends on:** <ticket IDs this requires, or "none">
 

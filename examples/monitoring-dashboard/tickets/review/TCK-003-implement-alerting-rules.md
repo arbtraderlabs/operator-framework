@@ -1,6 +1,7 @@
 ## TCK-003: Implement alerting rules
 
 **Status:** review
+**Severity:** S1
 **Spec reference:** [`../../SPEC.md`](../../SPEC.md#requirements) (Requirement 3)
 **Depends on:** TCK-002
 

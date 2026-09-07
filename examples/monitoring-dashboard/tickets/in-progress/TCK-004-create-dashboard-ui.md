@@ -1,6 +1,7 @@
 ## TCK-004: Create dashboard UI
 
 **Status:** in-progress
+**Severity:** S2
 **Spec reference:** [`../../SPEC.md`](../../SPEC.md#requirements) (Requirement 4)
 **Depends on:** TCK-002, TCK-003
 

@@ -5,6 +5,13 @@
 domain brief, precise enough to be decomposed into tickets without
 re-deriving the approach each time.
 
+## Why this matters
+
+The spec is the durable execution contract. Without it, each new session can
+silently expand, change, or reinterpret intended behaviour, and scope drifts.
+A written spec fixes what will and won't be built, so later — often cheaper —
+agents implement the agreed contract instead of re-deriving it each time.
+
 ## When to use
 
 After [`skills/resolve/skill.md`](../resolve/skill.md) has produced an agreed domain

@@ -5,6 +5,14 @@
 ticket's acceptance criteria and the specification — the framework's first
 mandatory human checkpoint.
 
+## Why this matters
+
+An executor is the wrong person to declare their own work done: they are
+motivated to see it as complete and can inherit their own blind spots.
+Verification from a fresh context, a different model, or a human evaluates
+the work against the spec and ticket rather than the executor's reasoning
+path — giving the framework an independent acceptance boundary.
+
 ## When to use
 
 For each ticket in `tickets/review/`, after its execution report exists.

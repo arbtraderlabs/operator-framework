@@ -5,6 +5,14 @@
 framework becomes public — a mandatory scan and human sign-off, never a
 default outcome of finishing work.
 
+## Why this matters
+
+Publication changes the risk boundary. Functionally correct work can still
+be unsafe to publish: git history, attribution, secrets, internal URLs, and
+private logic only become a problem once something crosses to public.
+Release is therefore a distinct gate, not an automatic consequence of
+verification passing.
+
 ## When to use
 
 Whenever a project, or any artifact from it, is about to be published:

@@ -4,6 +4,13 @@
 **Purpose:** Perform the work described by a single ticket, and only that
 ticket's scope.
 
+## Why this matters
+
+A ticket's boundaries are what keep a small request small. Without them,
+opportunistic refactoring and unrelated "improvements" quietly turn low-risk
+work into a large, hard-to-review change. Staying inside scope also makes
+the ticket a fair unit for independent verification.
+
 ## When to use
 
 For each ticket in `tickets/backlog/`, once its dependencies (declared on

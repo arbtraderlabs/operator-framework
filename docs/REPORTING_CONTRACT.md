@@ -9,6 +9,16 @@ Framework distinguishes two report types, produced by two different skills:
 | Execution report | [`skills/report/skill.md`](../skills/report/skill.md) | "What did I do, and does it match the ticket?" |
 | Verification report | [`skills/verify/skill.md`](../skills/verify/skill.md) | "Did an independent check confirm it actually meets the spec?" |
 
+## Reports are a handoff interface
+
+Execution and verification reports are deliberately structured so they can
+be read quickly by a human, pasted into a fresh AI session, supplied to a
+higher-tier reviewer, or stored with the project as evidence. Their purpose
+is to save the reader from needing the entire execution conversation: given
+the report (plus the ticket and spec it links to), a reviewer can judge what
+was done, what passed, what failed, and what remains open — without
+reconstructing the session that produced it.
+
 ## Execution reports
 
 An execution report is written by (or immediately after) whoever executed a

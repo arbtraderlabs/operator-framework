@@ -12,6 +12,14 @@ when to write one.
 **From:** <human name / role, or model + human supervisor>
 **To:** <next human/role, or "unassigned">
 
+## Environment
+
+- **Host / environment:** <hostname, dev/staging/prod, container, etc.>
+- **Repository:** <path or remote>
+- **Branch:** <branch, and whether it is pushed>
+- **Working tree:** clean | dirty (summarize uncommitted changes)
+- **Last known good commit:** <SHA or short description>
+
 ## Current state
 
 - **Spec:** <relative link>, status: draft | approved
@@ -28,6 +36,19 @@ re-describing them in full.
 
 The specific next action for whoever picks this up. Not "continue the
 work" — name the actual next step.
+
+## Context to carry forward
+
+- **Active spec:** <relative link>
+- **Active ticket:** <relative link>
+- **Relevant ADRs / decisions:** <links>
+
+## Do not repeat
+
+- Completed validation
+- Rejected approaches
+- Already-resolved ambiguity
+- Work already committed
 
 ## Blockers
 

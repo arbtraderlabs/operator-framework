@@ -41,6 +41,13 @@ public-release   (skills/public-release/skill.md) — final scan and sign-off be
 backlog for the spec is empty (see [`docs/TICKET_SYSTEM.md`](TICKET_SYSTEM.md)).
 `handoff` can occur at any point work pauses, not only at the end.
 
+The written spec is what makes this sequence more than a chat session: it is
+the implementation contract that tickets are planned from and verification
+checks against. It fixes intended behaviour before execution so later
+sessions — including cheaper execution models — implement what was agreed
+rather than re-deriving or silently extending it. Keep specs detailed enough
+to constrain execution, and no more detailed than necessary.
+
 ## Core artifacts
 
 | Artifact | Produced by | Template |

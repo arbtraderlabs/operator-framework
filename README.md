@@ -23,6 +23,10 @@ and handoffs lose context. Operator Framework addresses this by making the
 skill in this framework reads and writes durable artifacts instead of relying
 on conversational memory.
 
+The framework rests on a simple observation: AI execution becomes cheaper
+and more reliable when ambiguity and context are managed *before* execution.
+Preserve decisions, state, and evidence — not every conversation turn.
+
 ## Repository layout
 
 | Path | Purpose |

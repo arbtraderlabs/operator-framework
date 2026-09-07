@@ -5,6 +5,12 @@ project being specified. Produced by
 [`skills/write-spec/skill.md`](../skills/write-spec/skill.md) from the domain brief
 (see [`docs/DOMAIN.md`](../docs/DOMAIN.md)).
 
+The spec is the implementation contract: it fixes intended behaviour before
+execution so tickets, execution, and verification all work against the same
+agreed definition — and so later model sessions implement what was agreed
+rather than silently extending or reinterpreting it. Make it detailed enough
+to constrain execution, but no more detailed than necessary.
+
 ---
 
 # Specification: <Project/Feature Name>

@@ -4,6 +4,14 @@
 **Purpose:** Produce an honest, checkable account of what was executed for
 a ticket, as input to independent verification.
 
+## Why this matters
+
+A structured report compresses an entire execution session into evidence
+that another model or a human can review without reconstructing the
+conversation. It is meant to be read quickly, pasted into a fresh session,
+or handed to a stronger reviewer — the report, not the chat log, is the
+review interface.
+
 ## When to use
 
 Immediately after [`skills/execute-ticket/skill.md`](../execute-ticket/skill.md) completes

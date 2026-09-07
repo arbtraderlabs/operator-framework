@@ -6,6 +6,22 @@ decomposed into tickets by [`skills/plan-tickets/skill.md`](../skills/plan-ticke
 each ticket is then executed independently by
 [`skills/execute-ticket/skill.md`](../skills/execute-ticket/skill.md).
 
+## Tickets are history too
+
+Tickets are bounded execution units suited to lower-cost agents, but on a
+long-lived project they are also the searchable record of what happened and
+why. Human memory and chat scrollback are unreliable months later; the
+ticket set is not. A future maintainer should be able to trace intent:
+
+```
+feature → ticket → spec → decision → report → verification
+```
+
+Write tickets so that trail stays intact: link to the spec section and the
+decisions that shaped the work, and record the acceptance criteria that
+define completion. Don't duplicate the full requirements into the ticket —
+duplication is what lets the trail drift out of sync.
+
 ## Lifecycle
 
 Tickets move through four stages, represented as directories:
@@ -40,6 +56,27 @@ backlog ──▶ in-progress ──▶ review ──▶ done
   in 60 seconds" is.
 - **Ordered honestly.** Declares its real dependencies on other tickets so
   `plan-tickets` output reflects an executable order, not just a list.
+
+## Severity
+
+Severity records a ticket's blast radius so work can be prioritised and
+routed. It is a separate axis from **status** (which lifecycle directory the
+ticket lives in) and from the **verification outcome** (pass |
+pass-with-notes | fail, recorded on the verification report). Text labels
+are the primary meaning; any colour coding is illustrative only.
+
+| Severity | Label | Meaning |
+|---|---|---|
+| S0 | Critical | Immediate attention; severe production, security, or data-loss blast radius (or equivalent). |
+| S1 | High | Priority work with meaningful operational, architectural, or delivery risk. |
+| S2 | Medium | Normal engineering work requiring ordinary review (the default). |
+| S3 | Low | Routine, low-risk, or cosmetic work. |
+
+Most tickets default to S2; escalate only when the blast radius justifies
+it. Severity influences — but does not alone determine — model routing and
+review depth. Routing also weighs ambiguity, complexity, reversibility,
+security/privacy exposure, and how clear the acceptance criteria are (see
+[`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md)).
 
 ## Format
 

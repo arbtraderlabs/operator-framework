@@ -1,6 +1,7 @@
 ## TCK-002: Build ingestion pipeline
 
 **Status:** done
+**Severity:** S2
 **Spec reference:** [`../../SPEC.md`](../../SPEC.md#requirements) (Requirement 2)
 **Depends on:** TCK-001
 

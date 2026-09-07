@@ -41,8 +41,14 @@ in the ledger.
 ## Relationship to ADRs
 
 [Architecture Decision Records](adr/) capture durable, structural decisions
-about the *framework itself* (see [`docs/adr/`](adr/)). The decision ledger
-captures decisions made *while doing project work* under the framework.
+about the *framework itself* (see [`docs/adr/`](adr/)). A project using the
+framework may also keep its own ADRs for major project architecture
+decisions. The decision ledger captures the running decisions made *while
+doing project work* — use it for most judgment calls, and reserve an ADR for
+choices that are architectural, expensive or risky to reverse, or likely to
+be questioned later. The two records are complementary: the ledger is the
+day-to-day record; the ADR preserves durable reasoning.
+
 A project's `DECISIONS.md` is not a place to re-litigate the framework's own
 ADRs — if a project needs to deviate from an ADR, log that deviation and its
 rationale as a decision, but treat it as an exception, not a silent override.

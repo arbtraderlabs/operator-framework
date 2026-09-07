@@ -35,6 +35,26 @@ stress different capabilities:
    like any other (see [`docs/DECISION_LEDGER.md`](DECISION_LEDGER.md)),
    not a permanent architectural commitment.
 
+## Spend intelligence where it is needed
+
+Routing is an economic control as much as a quality control. The general
+shape is:
+
+1. **High ambiguity, architecture, or risk** → a strong reasoning model
+   (`resolve`, `write-spec`, `verify`, `public-release`).
+2. **Clear, bounded implementation** → a lower-cost execution model
+   (`execute-ticket`), once the spec and ticket already fix the contract.
+3. **Repetitive, low-risk transformation** → local or batch processing where
+   appropriate.
+4. **Final high-risk acceptance** → a strong model or human review.
+
+Avoid paying reasoning-model cost for steps whose outcome a good spec and
+ticket have already determined. This is optimization, not a hard rule, and
+it is not brand-specific: revisit routing whenever model capabilities,
+costs, or task shapes change. No specific model or vendor is endorsed here
+and no fixed cost saving is promised — the aim is to spend intelligence
+where intelligence changes the outcome.
+
 ## What this framework does not do
 
 - It does not name or endorse specific models or vendors.

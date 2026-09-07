@@ -5,6 +5,14 @@
 agreed problem statement — a domain brief — before any solution is
 proposed.
 
+## Why this matters
+
+Models can competently build the wrong interpretation when they start from a
+different mental model than the requester. What is obvious in the user's
+head is not automatically present in the model's context. Resolve aligns
+those interpretations before expensive execution begins — a few strong
+reasoning turns up front are cheaper than rebuilding the wrong feature later.
+
 ## When to use
 
 After [`skills/preflight/skill.md`](../preflight/skill.md), whenever the request is

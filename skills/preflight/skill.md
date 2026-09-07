@@ -3,6 +3,13 @@
 **Order:** 1 of 9
 **Purpose:** Confirm scope, access, and safety before any other skill runs.
 
+## Why this matters
+
+A thirty-second environment and scope check can prevent work being performed
+against the wrong repository, branch, machine, account, or stale project
+state — or with missing access that only surfaces mid-execution. Recovery
+from the wrong environment costs far more than the check that avoids it.
+
 ## When to use
 
 At the very start of engaging with a new request, and again whenever scope

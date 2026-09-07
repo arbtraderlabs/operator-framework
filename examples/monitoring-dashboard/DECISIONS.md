@@ -93,3 +93,37 @@ principle (see [`PRINCIPLES.md`](../../PRINCIPLES.md#6-synthetic-data-only-alway
 
 TCK-005 is currently in `tickets/backlog/`, scheduled after the core
 pipeline and UI tickets.
+
+---
+
+## D-004: Severity assigned per ticket; S3 backlog routed to execution tier
+
+**Date:** 2026-01-16
+**Made during:** `plan-tickets`
+**Status:** active
+
+### Decision
+
+Each ticket records a severity (see
+[`docs/TICKET_SYSTEM.md`](../../docs/TICKET_SYSTEM.md#severity)): TCK-003 is S1
+(alerting correctness has operational consequences), TCK-001/002/004 are S2,
+and TCK-005 is S3. Routing follows severity but is not determined by it:
+TCK-005 (S3, clear bounded work) is assigned to a lower-cost execution model,
+while TCK-003 (S1) is verified by the stronger reviewer before sign-off.
+
+### Context
+
+Severity gives reviewers and routers a quick read on blast radius without
+conflating it with lifecycle status or the verification outcome.
+
+### Alternatives considered
+
+- **Route solely by severity** — rejected: ambiguity, complexity, and the
+  clarity of acceptance criteria also matter (see
+  [`docs/MODEL_ROUTING.md`](../../docs/MODEL_ROUTING.md)).
+
+### Consequences
+
+TCK-005's notes record its execution-model tier; TCK-003's verification
+report will record an independent (stronger-model) pass before human
+sign-off.

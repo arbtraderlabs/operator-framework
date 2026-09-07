@@ -1,6 +1,7 @@
 ## TCK-001: Define metrics schema
 
 **Status:** done
+**Severity:** S2
 **Spec reference:** [`../../SPEC.md`](../../SPEC.md#requirements) (Requirement 1)
 **Depends on:** none
 

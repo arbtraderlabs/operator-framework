@@ -4,6 +4,12 @@ These are the operating principles behind Operator Framework. Every skill,
 template, and document in this repository is expected to honor them. Where a
 principle and a convenience conflict, the principle wins.
 
+The framework exists because AI-assisted work fails in predictable,
+avoidable ways: requester and model interpret the same ask differently,
+decisions vanish into conversation, scope drifts between request and result,
+and "done" is declared without verification. Each principle below is a
+response to one of those failure modes.
+
 ## 1. Documentation is the interface
 
 Decisions, scope, and state live in written artifacts (specs, tickets, the

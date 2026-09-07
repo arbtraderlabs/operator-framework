@@ -1,6 +1,7 @@
 ## TCK-005: Add synthetic data generator
 
 **Status:** backlog
+**Severity:** S3
 **Spec reference:** [`../../SPEC.md`](../../SPEC.md#requirements) (Requirement 5)
 **Depends on:** TCK-001
 
@@ -24,7 +25,8 @@ traffic data (see D-003 in
 
 Not yet started. Scheduled after TCK-002 and TCK-003 land, since the
 "degraded scenario" mode should exercise the real threshold logic once
-finalized.
+finalized. S3, clear bounded work — assigned to a lower-cost execution model
+tier (see D-004 in [`../../DECISIONS.md`](../../DECISIONS.md)).
 
 ### Influence Note
 

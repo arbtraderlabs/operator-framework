@@ -26,8 +26,41 @@ not. When uncertain whether a handoff note is warranted, write one.
 3. **What's next** — the specific next action, not a vague area of work.
 4. **Blockers** — anything the next person/model needs from someone else
    before they can proceed.
-5. **Pointers** — relative links to the exact files involved (spec section,
+5. **Environment** — where this work lives: repository, branch, machine /
+   environment, working-tree state, last known good commit.
+6. **Pointers** — relative links to the exact files involved (spec section,
    ticket, decision ledger entries).
+
+## Why handoff is context compression
+
+Large context capacity is valuable, but focused engineering tasks still
+benefit from focused, relevant context. Long-running projects accumulate far
+more context than any single task needs — obsolete plans, completed work,
+old logs, superseded decisions, repeated explanations, unrelated
+conversations. The goal is to preserve the *right* context, not all of it.
+
+A concise handoff reduces token cost: a fresh session starts from a small,
+current working set instead of replaying a large history. It also makes
+resumption robust to the interruptions that actually happen — an agent or
+model crash, switching models, switching machines, or returning after a long
+gap. In each case the handoff note, not the conversation, is what lets the
+next session continue without re-doing completed work or re-deriving
+decisions that are already made.
+
+## What to capture, what to leave behind
+
+Carry forward only what the next session needs to resume:
+
+- **Environment** — host/environment, repository, branch, working-tree
+  state, last known good commit.
+- **Context to carry forward** — the active spec, the active ticket, and
+  the relevant ADRs/decisions.
+- **The exact next action** — named, not "continue the work."
+
+Leave behind what is already resolved or committed: completed validation,
+rejected approaches, already-resolved ambiguity, and work already committed.
+Repeating it in a handoff spends the next session's context on decisions
+that are already settled.
 
 ## Where it lives
 

@@ -15,6 +15,13 @@ treats verification as a distinct step with its own report, and recommends
 using a different model instance, fresh context, or human reviewer wherever
 practical (see [`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md)).
 
+A fresh model or context is useful precisely because it evaluates the
+artifact against the spec and ticket rather than inheriting the executor's
+entire reasoning path. Verification is not expected to reproduce the
+implementation work — it checks the evidence and the acceptance criteria,
+proportionately to the ticket's risk (see
+[`docs/TICKET_SYSTEM.md`](TICKET_SYSTEM.md#severity)).
+
 ## What verification checks
 
 1. **Acceptance criteria** — every criterion listed on the ticket, checked

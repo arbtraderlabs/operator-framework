@@ -5,6 +5,15 @@
 across humans, models, or time gaps, without relying on conversational
 memory.
 
+## Why this matters
+
+A handoff is context compression. Long projects accumulate obsolete plans,
+superseded decisions, and completed work; dragging all of it into every new
+session costs tokens and buries what matters. A concise handoff keeps the
+small working set — current state, environment, active spec/ticket, next
+action, and what not to repeat — so a fresh session resumes cheaply and
+accurately.
+
 ## When to use
 
 At the end of a session, whenever responsibility changes hands, before a
@@ -29,8 +38,12 @@ long pause, or immediately if you must stop unexpectedly — see
    [`docs/DECISION_LEDGER.md`](../../docs/DECISION_LEDGER.md)) — don't defer
    logging into the handoff note itself.
 3. **Write the handoff note** using
-   [`templates/handoff.md`](../../templates/handoff.md): current state,
-   what's done, what's next (specifically), blockers, and pointers.
+   [`templates/handoff.md`](../../templates/handoff.md): environment,
+   current state, what's done, what's next (specifically), blockers, and
+   pointers. Include the context to carry forward (active spec, active
+   ticket, relevant decisions) and explicitly list what must *not* be
+   repeated (completed validation, rejected approaches, resolved ambiguity,
+   committed work).
 4. **Name the actual next action.** "Continue the work" is not sufficient —
    state the concrete next step.
 
