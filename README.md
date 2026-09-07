@@ -21,10 +21,20 @@ resolve -> spec -> route -> execute -> report -> verify
 
 You ask AI to build **X**. It confidently builds **Y**.
 
-Often the failure happens *before* implementation: your intent, vocabulary,
-constraints, or assumptions were never made explicit, so the model inferred
-its own. Operator Framework moves that failure earlier in the process, where
-it is far cheaper to correct.
+The failure pattern is consistent:
+
+```text
+user thinks X
+model understands Y
+model executes Y well
+result is still wrong
+```
+
+The failure happened *before* implementation: your intent, vocabulary,
+constraints, and assumptions were never made explicit, so the model inferred
+its own. What is clear in your head is not automatically available in the
+model's context. Operator Framework makes **resolving ambiguity before
+building** the first act of the lifecycle — the ORIENT stage.
 
 The framework is **documentation-first**: scope, decisions, and state live in
 written artifacts — specs, tickets, a decision ledger, reports — not in a chat
@@ -74,40 +84,62 @@ corrective ticket — it is never accepted on the executor's say-so.
 
 ## The OPERATE Method
 
-This lifecycle has a human-facing name: **the OPERATE Method** — Orient, Pin
-down, Establish, Route, Act, Trace, Evaluate. OPERATE is the methodology; the
-existing skills are the reusable operational steps used to implement it, and
-they keep their own names (`preflight`, `resolve`, `write-spec`,
-`plan-tickets`, `execute-ticket`, `report`, `verify`, `handoff`,
-`public-release`). The seven stages:
+This lifecycle has a human-facing name: **the OPERATE Method**. OPERATE is
+the methodology; the existing skills are the reusable operational steps that
+implement it, and they keep their own names. The canonical stages:
 
 ```text
-O  ORIENT      understand before building
-P  PIN DOWN    vocabulary + decisions + spec
-E  ESTABLISH   create bounded tickets
-R  ROUTE       choose capability by risk / cost
-A  ACT         execute scoped work
-T  TRACE       return evidence
-E  EVALUATE    independently verify
+O  ORIENT      resolve ambiguity and understand the problem
+P  PIN DOWN    vocabulary + decisions + specification
+E  ESTABLISH   create bounded tickets and acceptance criteria
+R  ROUTE       choose the right model or execution path for the task
+A  ACT         execute the scoped work
+T  TRACE       return structured evidence and execution state
+E  EVALUATE    independently verify the result against the agreed contract
 ```
 
-- **Orient** — inspect the problem, resolve ambiguity, understand the
-  environment and constraints (`preflight`, `resolve`).
-- **Pin down** — turn shared understanding into durable context: vocabulary,
-  decisions, requirements, and the spec (`DOMAIN.md`, ADRs / decision
-  ledger, `write-spec`).
-- **Establish** — turn the spec into bounded, ordered tickets with
-  acceptance criteria and dependencies (`plan-tickets`, ticket lifecycle).
-- **Route** — choose the execution capability by ambiguity, risk, complexity,
-  and cost. Spend intelligence where intelligence changes the outcome
-  ([`docs/MODEL_ROUTING.md`](docs/MODEL_ROUTING.md)).
-- **Act** — execute one scoped ticket within its boundaries; stop on
+Each stage answers a question:
+
+- **ORIENT** — *"What are we actually trying to do?"* Inspect the problem
+  and environment, resolve ambiguity, surface assumptions, identify
+  constraints and major unknowns before building (`preflight`, `resolve`).
+- **PIN DOWN** — *"What exactly have we agreed?"* Turn the resolved
+  understanding into durable artefacts: shared vocabulary, decisions (ADRs
+  where appropriate), requirements, scope boundaries, and the specification
+  (`DOMAIN.md`, decision ledger, `write-spec`).
+- **ESTABLISH** — *"How is the work bounded?"* Break the spec into small
+  tickets with acceptance criteria, dependencies, and severity
+  (`plan-tickets`, ticket lifecycle).
+- **ROUTE** — *"Who or what should perform this already-defined work?"*
+  Routing happens *after* the problem is understood and bounded; it is
+  execution allocation, weighing how clearly bounded the ticket is,
+  technical complexity, severity / blast radius, reversibility,
+  security/privacy exposure, cost, remaining uncertainty, and verification
+  strength ([`docs/MODEL_ROUTING.md`](docs/MODEL_ROUTING.md)). ROUTE is not
+  "resolve ambiguity" — that is ORIENT's job.
+- **ACT** — execute the scoped ticket within its boundaries; stop on
   blockers instead of inventing scope (`execute-ticket`).
-- **Trace** — return a structured, portable record of what changed, what was
-  validated, and what remains open. The report is the evidence interface,
-  not the chat transcript (`report`).
-- **Evaluate** — independently test the result against the spec and ticket
-  (`verify`):
+- **TRACE** — return structured evidence and execution state: files changed,
+  validation, evidence, deviations, failed checks, open questions, next
+  action. Within OPERATE, TRACE means *execution traceability* — not packet,
+  distributed, or telemetry tracing. The report is the portable interface
+  between the executor and the reviewer (`report`).
+- **EVALUATE** — independently verify the result against the agreed
+  contract (`verify`).
+
+Routing contrasts:
+
+| Stage | README-only link change | Core architecture change |
+|---|---|---|
+| ORIENT | request understood | problem understood |
+| PIN DOWN | README only, exact URL, no redesign | architecture / spec agreed |
+| ESTABLISH | one bounded ticket | bounded architectural ticket |
+| ROUTE | lower-cost execution agent suffices | stronger reasoning model (risk remains high) |
+
+EVALUATE is an independent review model: the implementation agent does not
+judge its own work complete. A typical workflow is a lower-cost execution
+agent that performs ACT and TRACE (report + evidence), followed by a strong
+reasoning reviewer who performs EVALUATE:
 
 ```text
 evaluate -- pass --> accept
@@ -115,8 +147,11 @@ evaluate -- pass --> accept
      +-- fail --> corrective ticket -> route -> act -> trace -> evaluate
 ```
 
-Two supporting lifecycle controls sit alongside OPERATE rather than inside
-the acronym:
+The stronger reviewer is not redoing the implementation; it asks "did the
+work actually satisfy what we agreed?" The evaluator may be a stronger
+reasoning model, a fresh session, a different capable model, or a human.
+
+Two lifecycle controls sit alongside OPERATE rather than inside the acronym:
 
 - **Handoff** — context compression for pausing and resuming work across
   chats, models, machines, or long gaps.
