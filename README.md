@@ -293,6 +293,14 @@ routing framework.
 
 ## Quick start
 
+Start or resume a project with the entry skill:
+
+    /operate
+
+It inspects the repository, determines the current OPERATE stage, and
+routes into the workflow skills below — it does not restart planning that
+is already captured. To understand the framework from scratch instead:
+
 1. Read [`PRINCIPLES.md`](PRINCIPLES.md) — operating principles, including the
    Influence Note disclosure standard.
 2. Read [`AGENTS.md`](AGENTS.md) — how an AI agent should behave inside the
@@ -305,9 +313,12 @@ routing framework.
 
 ## Skills
 
-The short lifecycle above expands into nine sequential skills, each documented
-independently in [`skills/`](skills/). `verify` and `public-release` are the
-framework's two mandatory human sign-off gates.
+The front door is the `/operate` entry skill
+([`skills/operate/skill.md`](skills/operate/skill.md)): it inspects the
+repository, infers the current state, and routes into the workflow skills
+below. The lifecycle expands into nine sequential workflow skills, each
+documented independently in [`skills/`](skills/). `verify` and
+`public-release` are the framework's two mandatory human sign-off gates.
 
 | Skill | Purpose |
 |---|---|
@@ -332,7 +343,7 @@ See [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) for how they fit together.
 | [`AGENTS.md`](AGENTS.md) | How any AI agent/model should behave when operating inside this framework. |
 | [`docs/`](docs/) | Methodology, model routing, domain framing, decision ledger, reporting, ticket system, handoff, and verification guidance. |
 | [`docs/adr/`](docs/adr/) | Architecture Decision Records explaining why the framework is built this way. |
-| [`skills/`](skills/) | Nine discrete, sequential skills that operationalize the methodology. |
+| [`skills/`](skills/) | The `/operate` entry skill plus nine sequential workflow skills that operationalize the methodology. |
 | [`templates/`](templates/) | Reusable templates referenced by the skills and docs. |
 | [`tickets/`](tickets/) | Lifecycle directories (`backlog` → `in-progress` → `review` → `done`) for real work using this framework. |
 | [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) | A complete worked example, end to end, using synthetic data only. |

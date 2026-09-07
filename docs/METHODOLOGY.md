@@ -4,6 +4,11 @@ This document describes the end-to-end flow of Operator Framework: how a
 request becomes verified, reported work. It is the map; each
 [`skills/`](../skills/) file is the detailed procedure for one step.
 
+Before entering this flow, a human normally starts with the
+[`operate`](../skills/operate/skill.md) entry skill (`/operate`), which
+inspects the repository and routes into the appropriate step below —
+resuming from durable state rather than restarting planning.
+
 ## The flow
 
 ```

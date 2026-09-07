@@ -1,9 +1,22 @@
 # Skills
 
-Nine sequential skills operationalize the Operator Framework methodology
-(see [`docs/METHODOLOGY.md`](../docs/METHODOLOGY.md) for how they fit
-together). Each skill file below states its purpose, inputs, procedure,
-outputs, and the human checkpoints it respects.
+Operator Framework has one **entry skill** — [`operate/skill.md`](operate/skill.md),
+invoked as `/operate` — which inspects the repository, infers the current
+OPERATE state, and routes into the workflow skills below. It is a front
+door into the lifecycle, not a workflow step.
+
+## Entry skill
+
+| Skill | Purpose |
+|---|---|
+| [`operate/skill.md`](operate/skill.md) | Inspect the repository, infer the current OPERATE state, and route into the workflow skills below. Invoke `/operate`. |
+
+## Workflow skills
+
+Nine sequential workflow skills operationalize the Operator Framework
+methodology (see [`docs/METHODOLOGY.md`](../docs/METHODOLOGY.md) for how
+they fit together). Each skill file below states its purpose, inputs,
+procedure, outputs, and the human checkpoints it respects.
 
 | Order | Skill | Purpose |
 |---|---|---|
