@@ -1,6 +1,6 @@
 # ADR Template
 
-Copy this file to an ADR file (e.g. `ADR-00N-<kebab-title>.md`) for
+Copy this file to an ADR file (e.g. `ADR-000N-<kebab-title>.md`) for
 durable architectural decisions. See
 [`docs/adr/README.md`](../docs/adr/README.md) for when to use ADRs.
 

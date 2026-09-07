@@ -21,12 +21,21 @@ traffic data (see D-003 in
 - [ ] Generated output contains no real identifiers, timestamps tied to
       real events, or real infrastructure references — synthetic only.
 
+### Route
+
+**Execution profile:** inexpensive worker — clear, bounded, low-risk (S3)
+work that does not need strong reasoning (see D-004 in
+[`../../DECISIONS.md`](../../DECISIONS.md#d-004-severity-assigned-per-ticket-s3-backlog-routed-to-execution-tier)).
+**Verification method:** generate events in both modes and confirm each
+parses against the TCK-001 schema (deterministic schema check) and that the
+"degraded scenario" output contains at least one service breaching the
+thresholds from TCK-003.
+
 ### Notes
 
 Not yet started. Scheduled after TCK-002 and TCK-003 land, since the
 "degraded scenario" mode should exercise the real threshold logic once
-finalized. S3, clear bounded work — assigned to a lower-cost execution model
-tier (see D-004 in [`../../DECISIONS.md`](../../DECISIONS.md)).
+finalized.
 
 ### Influence Note
 

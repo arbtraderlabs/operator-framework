@@ -27,6 +27,18 @@ true now.
 - [ ] <Specific, checkable criterion 2>
 - [ ] <Add as many as needed — vague criteria are not acceptable>
 
+### Route
+
+_Include only when execution differs from the defaults in
+[`docs/MODEL_ROUTING.md`](../docs/MODEL_ROUTING.md); delete this section when
+all defaults apply. Record only what materially differs or adds value._
+
+- **Execution profile:** <mechanism class, if different from the default>
+- **Verification method:** <concrete check and pass condition, if known>
+- **Context required:** <minimal files / spec sections / ADRs, if not the
+  default>
+- **Escalation conditions:** <only if different from the standard stop list>
+
 ### Notes
 
 Anything an executor needs that isn't obvious from the spec: constraints,

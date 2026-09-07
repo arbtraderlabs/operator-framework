@@ -42,7 +42,7 @@ For each ticket in `tickets/review/`, after its execution report exists.
    [`templates/verification-report.md`](../../templates/verification-report.md),
    recording Pass, Pass with notes, or Fail with specifics.
 6. **Get explicit human sign-off** — this is mandatory (see
-   [`docs/adr/ADR-004-git-native-ticketing.md`](../../docs/adr/ADR-004-git-native-ticketing.md)).
+   [`docs/adr/ADR-0004-mandatory-human-verification-gate.md`](../../docs/adr/ADR-0004-mandatory-human-verification-gate.md)).
    An AI-produced finding is an input to this decision, not a substitute
    for it.
 7. **Move the ticket** to `tickets/done/` on Pass or Pass-with-notes, or

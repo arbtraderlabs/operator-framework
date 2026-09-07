@@ -60,14 +60,23 @@ to constrain execution, and no more detailed than necessary.
 | Verification report | `verify` | [`templates/verification-report.md`](../templates/verification-report.md) |
 | Handoff note | `handoff` | [`templates/handoff.md`](../templates/handoff.md) |
 
-## Model routing
+## Routing (ROUTE)
 
-Different skills have different model needs (for example, `resolve` benefits
-from strong reasoning and clarifying-question ability; `execute-ticket` may
-be well suited to a faster/cheaper model for mechanical steps). This
-framework does not mandate a specific model per skill. See
-[`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md) for a routing framework you can
-apply with whatever models you have available.
+ROUTE is the execution-allocation decision for already-defined work. There
+is no dedicated `route` skill — routing is an optimization, not a required
+stage ceremony, and [`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md) owns the
+routing doctrine. In practice:
+
+- `plan-tickets` records non-default **Route** overrides on a ticket
+  (execution profile, verification method, context, escalation) so
+  verification can exist before execution;
+- `execute-ticket` honours those overrides, prefers deterministic tooling
+  where sufficient, and classifies blockers instead of improvising;
+- different skills have different model needs, but the framework never
+  mandates a specific model per skill.
+
+See [`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md) for the full routing
+framework.
 
 ## Security and privacy
 

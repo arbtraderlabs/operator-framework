@@ -35,7 +35,7 @@ or context changes materially (new stakeholders, new systems in play).
 4. **Run the safety check.** Confirm the request does not require
    introducing real proprietary data, secrets, or private material into
    artifacts that will be tracked under this framework (see
-   [`README.md#security-and-privacy`](../README.md#security-and-privacy)).
+   [`README.md#security-and-privacy`](../../README.md#security-and-privacy)).
    If it does, flag this explicitly — synthetic/generalized versions only
    belong in tracked artifacts.
 5. **Decide the path.** Is this ambiguous enough to need

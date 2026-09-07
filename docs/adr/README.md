@@ -15,10 +15,11 @@ behind durable choices.
 
 | ADR | Title |
 |---|---|
-| [0001](ADR-001-spec-before-execution.md) | Documentation-first workflow over conversational execution |
-| [0002](ADR-002-cost-aware-model-routing.md) | Ticket-based execution lifecycle with explicit stages |
-| [0003](ADR-003-evidence-based-verification.md) | Model-agnostic skill design |
-| [0004](ADR-004-git-native-ticketing.md) | Mandatory human verification gate before release |
+| [0001](ADR-0001-documentation-first-workflow.md) | Documentation-first workflow over conversational execution |
+| [0002](ADR-0002-ticket-based-execution-lifecycle.md) | Ticket-based execution lifecycle with explicit stages |
+| [0003](ADR-0003-model-agnostic-skill-design.md) | Model-agnostic skill design |
+| [0004](ADR-0004-mandatory-human-verification-gate.md) | Mandatory human verification gate before release |
+| [0005](ADR-0005-routing-as-execution-allocation.md) | Routing as execution allocation, not only model choice |
 
 ## Format
 

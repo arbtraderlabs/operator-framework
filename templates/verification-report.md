@@ -47,7 +47,7 @@ introduced (see
 **Date:** YYYY-MM-DD
 
 A verification report is not final until this section is completed by a
-human, per [`docs/adr/ADR-004-git-native-ticketing.md`](../docs/adr/ADR-004-git-native-ticketing.md).
+human, per [`docs/adr/ADR-0004-mandatory-human-verification-gate.md`](../docs/adr/ADR-0004-mandatory-human-verification-gate.md).
 
 ## Influence Note
 

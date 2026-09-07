@@ -30,14 +30,21 @@ execution.
    with specific, checkable acceptance criteria — not vague descriptions —
    and assign each a severity (see
    [`docs/TICKET_SYSTEM.md#severity`](../../docs/TICKET_SYSTEM.md#severity)).
-3. **Declare real dependencies** between tickets so execution order is
+3. **Record non-default Route overrides only.** Where a concrete
+   verification method is known, or execution differs from the default
+   (mechanism, context, or escalation), capture it in the ticket's **Route**
+   section (see [`templates/ticket.md`](../../templates/ticket.md#route));
+   otherwise omit the section entirely. Do not over-engineer trivial
+   tickets — where no override applies, the defaults in
+   [`docs/MODEL_ROUTING.md`](../../docs/MODEL_ROUTING.md) govern.
+4. **Declare real dependencies** between tickets so execution order is
    explicit, not assumed.
-4. **Assign sequential ticket numbers** (`TCK-001`, `TCK-002`, ...) — see
+5. **Assign sequential ticket numbers** (`TCK-001`, `TCK-002`, ...) — see
    [`docs/TICKET_SYSTEM.md#numbering`](../../docs/TICKET_SYSTEM.md#numbering).
-5. **Place each ticket file in `tickets/backlog/`** (or the project's
+6. **Place each ticket file in `tickets/backlog/`** (or the project's
    equivalent lifecycle directory — see
    [`docs/TICKET_SYSTEM.md`](../../docs/TICKET_SYSTEM.md)).
-6. **Log any decomposition decisions worth recording** — e.g. why a
+7. **Log any decomposition decisions worth recording** — e.g. why a
    seemingly single requirement was split into multiple tickets, or
    deliberately kept together — in the decision ledger.
 

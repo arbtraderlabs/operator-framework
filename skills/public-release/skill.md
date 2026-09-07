@@ -35,7 +35,7 @@ visible outside the working team.
    for real customer names, internal URLs, production credentials, or
    business logic that wasn't meant to be generalized. Anything found must
    be removed or replaced with synthetic equivalents before release — see
-   [`README.md#security-and-privacy`](../README.md#security-and-privacy).
+   [`README.md#security-and-privacy`](../../README.md#security-and-privacy)).
 3. **Scan for secrets.** Check for tokens, keys, connection strings, or
    credentials in any form, including inside examples or configuration
    snippets. None should ever be present, even placeholder-looking real
@@ -47,7 +47,7 @@ visible outside the working team.
    docs, skills, templates, and examples should resolve; the framework's
    own navigation is part of what's being released.
 6. **Get explicit human sign-off to publish.** This is mandatory (see
-   [`docs/adr/ADR-004-git-native-ticketing.md`](../../docs/adr/ADR-004-git-native-ticketing.md))
+   [`docs/adr/ADR-0004-mandatory-human-verification-gate.md`](../../docs/adr/ADR-0004-mandatory-human-verification-gate.md))
    and is independent from the sign-off already obtained during `verify` —
    verification confirms the work is correct; this confirms it is safe and
    appropriate to make public.

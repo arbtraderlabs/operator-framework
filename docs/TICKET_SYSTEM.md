@@ -78,6 +78,16 @@ review depth. Routing also weighs ambiguity, complexity, reversibility,
 security/privacy exposure, and how clear the acceptance criteria are (see
 [`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md)).
 
+## Route and verification contract
+
+A ticket may carry a **Route** block recording, only where they differ from
+the defaults, its execution profile, verification method, context required,
+and escalation conditions (see [`templates/ticket.md`](../templates/ticket.md#route);
+the defaults and mechanism vocabulary live in
+[`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md)). Recording a concrete
+verification method at planning time lets verification exist before
+execution. Ordinary tickets carry no Route block at all.
+
 ## Format
 
 Use [`templates/ticket.md`](../templates/ticket.md) for every ticket.

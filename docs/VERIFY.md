@@ -22,6 +22,13 @@ implementation work — it checks the evidence and the acceptance criteria,
 proportionately to the ticket's risk (see
 [`docs/TICKET_SYSTEM.md`](TICKET_SYSTEM.md#severity)).
 
+## Verification can be planned before execution
+
+Where a ticket records a concrete verification method (see
+[`templates/ticket.md`](../templates/ticket.md#route)), the verifier should
+run it as the primary evidence; otherwise check every acceptance criterion
+explicitly, as below.
+
 ## What verification checks
 
 1. **Acceptance criteria** — every criterion listed on the ticket, checked

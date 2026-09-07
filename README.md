@@ -12,7 +12,7 @@ operator-framework
 resolve -> spec -> route -> execute -> report -> verify
 ```
 
-**Version:** v0.1 (initial public release)
+**Version:** v0.2 (operational routing + verification contracts)
 
 > A spec-driven, cost-aware methodology for planning, routing, executing and
 > validating work with AI agents.
@@ -196,7 +196,13 @@ Each stage answers a question:
   execution allocation, weighing how clearly bounded the ticket is,
   technical complexity, severity / blast radius, reversibility,
   security/privacy exposure, cost, remaining uncertainty, and verification
-  strength ([`docs/MODEL_ROUTING.md`](docs/MODEL_ROUTING.md)). ROUTE is not
+  strength ([`docs/MODEL_ROUTING.md`](docs/MODEL_ROUTING.md)). A route is
+  broader than model choice: it covers execution mechanism, context,
+  verification, and escalation, and is captured — where non-default — in
+  the ticket's **Route** block
+  ([`templates/ticket.md`](templates/ticket.md#route)). Doctrine favours
+  deterministic tools where correctness can be computed, and treats high
+  uncertainty as a planning signal rather than a model upgrade. ROUTE is not
   "resolve ambiguity" — that is ORIENT's job.
 - **ACT** — execute the scoped ticket within its boundaries; stop on
   blockers instead of inventing scope (`execute-ticket`).
@@ -248,7 +254,8 @@ Two lifecycle controls sit alongside OPERATE rather than inside the acronym:
 - **Bound the work** — small tickets stop agents quietly expanding scope or
   "improving" unrelated areas.
 - **Route intelligently** — use strong reasoning where ambiguity and risk
-  justify it, and cheaper models for clear bounded execution.
+  justify it, and cheaper executors for clear bounded work once the ticket
+  fixes the contract.
 - **Return evidence** — structured reports let a reviewer judge what happened
   without replaying an entire session.
 - **Verify independently** — "done" is a claim until an independent check, with
@@ -354,10 +361,12 @@ replaying the whole project. See
 
 ## Status
 
-v0.1 is a documentation-first release: the methodology, skills, templates,
-and one worked example are complete and usable today. Tooling/automation
-that enforces this structure programmatically is out of scope for v0.1 and
-may follow in later versions.
+v0.2 is a documentation-and-contracts release building on v0.1: ROUTE now
+covers execution mechanism, context, verification, and escalation, and
+tickets may carry non-default **Route** overrides so verification can be
+planned before execution. The methodology, skills, templates, and one
+worked example remain complete and usable today; programmatic enforcement
+remains out of scope.
 
 ## License
 
