@@ -43,44 +43,12 @@ of what was decided and what happened. It is also **model-agnostic**: it works
 with *a* capable AI model, or several routed by task, with no dependency on any
 specific vendor's API, branding, or tooling.
 
-## How it works
+A request moves from ambiguity to an agreed problem, a written specification,
+bounded execution, structured evidence, and independent verification. Work
+that fails verification returns as a corrective ticket — it is never accepted
+on the executor's say-so.
 
-```text
-     idea / request
-           |
-           v
-       resolve
-           |
-           v
-        spec
-           |
-           v
-    plan tickets
-           |
-           v
-        route
-           |
-           v
-       execute
-           |
-           v
-        report
-           |
-           v
-        verify
-           |
-           v
-      accepted? -- no --> plan tickets
-           |
-           | yes
-           v
-         done
-```
-
-A request becomes an agreed problem, a written spec, bounded tickets, a routed
-model assignment, executed work, a structured report, and independent
-verification. Work that fails verification returns to ticket planning as a
-corrective ticket — it is never accepted on the executor's say-so.
+Operator Framework standardises that lifecycle through the **OPERATE Method**.
 
 ## The OPERATE Method
 
