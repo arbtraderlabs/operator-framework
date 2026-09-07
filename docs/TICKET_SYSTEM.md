@@ -2,9 +2,9 @@
 
 Tickets are the unit of executable work in Operator Framework. A
 specification (see [`templates/spec.md`](../templates/spec.md)) is
-decomposed into tickets by [`skills/plan-tickets.md`](../skills/plan-tickets.md);
+decomposed into tickets by [`skills/plan-tickets/skill.md`](../skills/plan-tickets/skill.md);
 each ticket is then executed independently by
-[`skills/execute-ticket.md`](../skills/execute-ticket.md).
+[`skills/execute-ticket/skill.md`](../skills/execute-ticket/skill.md).
 
 ## Lifecycle
 
@@ -59,9 +59,9 @@ Each ticket accumulates, over its life:
 1. The ticket itself (`templates/ticket.md`), written during `plan-tickets`.
 2. An execution report (`templates/execution-report.md`), written during
    `report`, once `execute-ticket` is complete — see
-   [`docs/reporting.md`](reporting.md).
+   [`docs/REPORTING_CONTRACT.md`](REPORTING_CONTRACT.md).
 3. A verification report (`templates/verification-report.md`), written
-   during `verify` — see [`docs/verify.md`](verify.md).
+   during `verify` — see [`docs/VERIFY.md`](VERIFY.md).
 
 A ticket only moves to `tickets/done/` after its verification report records
 a pass and a human has signed off.

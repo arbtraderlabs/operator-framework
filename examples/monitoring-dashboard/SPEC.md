@@ -3,7 +3,7 @@
 **Status:** approved
 **Domain reference:** [`DOMAIN.md`](DOMAIN.md)
 
-Produced via [`skills/write-spec.md`](../../skills/write-spec.md) using
+Produced via [`skills/write-spec/skill.md`](../../skills/write-spec/skill.md) using
 [`templates/spec.md`](../../templates/spec.md). All data, service names,
 and identifiers below are synthetic.
 

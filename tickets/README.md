@@ -5,7 +5,7 @@ organized by lifecycle stage. It starts empty in this repository — it's the
 working area for a project you run with this framework, not a place for
 framework documentation itself.
 
-See [`docs/ticket-system.md`](../docs/ticket-system.md) for the full
+See [`docs/TICKET_SYSTEM.md`](../docs/TICKET_SYSTEM.md) for the full
 lifecycle, ticket format, and naming convention, and
 [`templates/ticket.md`](../templates/ticket.md) for the ticket template.
 

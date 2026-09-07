@@ -14,7 +14,7 @@ which is not the goal of a general operating framework.
 Every skill in [`skills/`](../../skills/) is written in terms of inputs,
 outputs, and procedure — never in terms of a specific model, vendor API, or
 product feature. Guidance on *choosing* a model for a given skill is kept
-separate, in [`docs/model-routing.md`](../model-routing.md), and is
+separate, in [`docs/MODEL_ROUTING.md`](../MODEL_ROUTING.md), and is
 explicitly framed as optional optimization rather than a requirement. The
 framework must remain fully usable with a single, unnamed, general-purpose
 model.
@@ -22,7 +22,7 @@ model.
 ## Consequences
 
 - **Positive:** The framework doesn't need to be rewritten as models and
-  vendors change; only [`docs/model-routing.md`](../model-routing.md)
+  vendors change; only [`docs/MODEL_ROUTING.md`](../MODEL_ROUTING.md)
   guidance might evolve.
 - **Positive:** Teams using different models, or mixing several, can adopt
   the same methodology without translation.

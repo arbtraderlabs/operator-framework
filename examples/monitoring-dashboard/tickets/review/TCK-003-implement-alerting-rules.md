@@ -25,7 +25,7 @@ to a synthetic webhook when a service is degraded or down.
 Thresholds source and rationale: D-001 in
 [`../../DECISIONS.md`](../../DECISIONS.md#d-001-alert-thresholds-configured-via-a-simple-file-not-an-admin-ui).
 Execution is complete and this ticket is submitted for review; it has not
-yet been verified (see [`docs/verify.md`](../../../../docs/verify.md)),
+yet been verified (see [`docs/VERIFY.md`](../../../../docs/VERIFY.md)),
 so it is not yet covered by
 [`../../reports/execution-report.md`](../../reports/execution-report.md) or
 [`../../reports/verification-report.md`](../../reports/verification-report.md),

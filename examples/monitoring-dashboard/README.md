@@ -2,7 +2,7 @@
 
 A complete, worked example of Operator Framework applied end to end, using
 entirely synthetic data. This example follows the full flow described in
-[`docs/methodology.md`](../../docs/methodology.md): domain brief →
+[`docs/METHODOLOGY.md`](../../docs/METHODOLOGY.md): domain brief →
 specification → tickets → execution → reporting → verification.
 
 **Influence Note:** This artifact was produced under AI model assistance
@@ -21,10 +21,10 @@ disconnected tools. No real company, product, or system is represented.
 
 | File | Role |
 |---|---|
-| [`DOMAIN.md`](DOMAIN.md) | Domain brief — problem, actors, constraints, produced by [`skills/resolve.md`](../../skills/resolve.md) |
-| [`SPEC.md`](SPEC.md) | Specification — produced by [`skills/write-spec.md`](../../skills/write-spec.md) |
-| [`DECISIONS.md`](DECISIONS.md) | Decision ledger — see [`docs/decision-ledger.md`](../../docs/decision-ledger.md) |
-| [`tickets/`](tickets/) | Sample tickets across all four lifecycle stages — see [`docs/ticket-system.md`](../../docs/ticket-system.md) |
+| [`DOMAIN.md`](DOMAIN.md) | Domain brief — problem, actors, constraints, produced by [`skills/resolve/skill.md`](../../skills/resolve/skill.md) |
+| [`SPEC.md`](SPEC.md) | Specification — produced by [`skills/write-spec/skill.md`](../../skills/write-spec/skill.md) |
+| [`DECISIONS.md`](DECISIONS.md) | Decision ledger — see [`docs/DECISION_LEDGER.md`](../../docs/DECISION_LEDGER.md) |
+| [`tickets/`](tickets/) | Sample tickets across all four lifecycle stages — see [`docs/TICKET_SYSTEM.md`](../../docs/TICKET_SYSTEM.md) |
 | [`reports/execution-report.md`](reports/execution-report.md) | Execution report for the completed tickets |
 | [`reports/verification-report.md`](reports/verification-report.md) | Verification report for the completed tickets |
 

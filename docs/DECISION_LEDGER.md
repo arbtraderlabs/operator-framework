@@ -14,7 +14,7 @@ Log an entry whenever something changes:
 - **Risk posture** — accepting a known risk, deferring a fix, or overriding
   a verification concern.
 - **Routing** — which model or process handled a given skill, if that
-  choice was deliberate (see [`docs/model-routing.md`](model-routing.md)).
+  choice was deliberate (see [`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md)).
 
 Routine, reversible micro-choices (variable names, file layout inside a
 single ticket) do not need a ledger entry. When in doubt, log it — the cost
@@ -23,7 +23,7 @@ material decision.
 
 ## Format
 
-Each entry uses [`templates/decision-ledger-entry.md`](../templates/decision-ledger-entry.md)
+Each entry uses [`templates/decision.md`](../templates/decision.md)
 and is appended to the project's `DECISIONS.md` file (see
 [`examples/monitoring-dashboard/DECISIONS.md`](../examples/monitoring-dashboard/DECISIONS.md)
 for a worked example). Entries are numbered sequentially and never edited

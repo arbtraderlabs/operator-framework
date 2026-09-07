@@ -1,7 +1,7 @@
 # Domain Brief: Monitoring Dashboard
 
-Produced via [`skills/resolve.md`](../../skills/resolve.md). Structure per
-[`docs/domain.md`](../../docs/domain.md). All names, systems, and data
+Produced via [`skills/resolve/skill.md`](../../skills/resolve/skill.md). Structure per
+[`docs/DOMAIN.md`](../../docs/DOMAIN.md). All names, systems, and data
 below are synthetic and invented for this example.
 
 ## Problem

@@ -16,10 +16,10 @@ consequential (marked "done", or made public).
 Two points in the framework require an explicit human sign-off and cannot be
 fully automated away:
 
-1. **Ticket verification** ([`skills/verify.md`](../../skills/verify.md)) —
+1. **Ticket verification** ([`skills/verify/skill.md`](../../skills/verify/skill.md)) —
    a ticket does not move to `tickets/done/` on a model's self-assessment
    alone; a human confirms the verification report's finding.
-2. **Public release** ([`skills/public-release.md`](../../skills/public-release.md))
+2. **Public release** ([`skills/public-release/skill.md`](../../skills/public-release/skill.md))
    — nothing produced under this framework is published without an explicit
    human go-ahead, following the pre-publish scan for proprietary or private
    material.

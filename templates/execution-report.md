@@ -1,7 +1,7 @@
 # Execution Report Template
 
-Produced by [`skills/report.md`](../skills/report.md) after a ticket is
-executed. See [`docs/reporting.md`](../docs/reporting.md) for content
+Produced by [`skills/report/skill.md`](../skills/report/skill.md) after a ticket is
+executed. See [`docs/REPORTING_CONTRACT.md`](../docs/REPORTING_CONTRACT.md) for content
 standards. Store alongside the project's other reports (e.g.
 `reports/execution-report.md`, or one per ticket if preferred).
 
@@ -29,7 +29,7 @@ acceptance criteria.
 ## Deviations from the ticket/spec
 
 Anything done differently than specified, and the reasoning. Link to a
-[decision ledger](../docs/decision-ledger.md) entry if the deviation was
+[decision ledger](../docs/DECISION_LEDGER.md) entry if the deviation was
 material.
 
 ## Known gaps / follow-ups

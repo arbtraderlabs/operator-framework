@@ -1,8 +1,8 @@
 # Ticket Template
 
 Copy this file to `TCK-<number>-<kebab-title>.md` inside the appropriate
-[lifecycle directory](../docs/ticket-system.md) (`tickets/backlog/` when
-first created). See [`docs/ticket-system.md`](../docs/ticket-system.md) for
+[lifecycle directory](../docs/TICKET_SYSTEM.md) (`tickets/backlog/` when
+first created). See [`docs/TICKET_SYSTEM.md`](../docs/TICKET_SYSTEM.md) for
 the full lifecycle and conventions.
 
 ---
@@ -28,7 +28,7 @@ true now.
 
 Anything an executor needs that isn't obvious from the spec: constraints,
 things explicitly out of scope for this ticket, links to related decisions
-in the [decision ledger](../docs/decision-ledger.md).
+in the [decision ledger](../docs/DECISION_LEDGER.md).
 
 ### Influence Note
 

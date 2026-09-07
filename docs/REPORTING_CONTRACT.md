@@ -6,8 +6,8 @@ Framework distinguishes two report types, produced by two different skills:
 
 | Report | Produced by | Answers |
 |---|---|---|
-| Execution report | [`skills/report.md`](../skills/report.md) | "What did I do, and does it match the ticket?" |
-| Verification report | [`skills/verify.md`](../skills/verify.md) | "Did an independent check confirm it actually meets the spec?" |
+| Execution report | [`skills/report/skill.md`](../skills/report/skill.md) | "What did I do, and does it match the ticket?" |
+| Verification report | [`skills/verify/skill.md`](../skills/verify/skill.md) | "Did an independent check confirm it actually meets the spec?" |
 
 ## Execution reports
 
@@ -26,7 +26,7 @@ Minimum contents:
 
 ## Verification reports
 
-A verification report is written by whoever ran [`skills/verify.md`](../skills/verify.md)
+A verification report is written by whoever ran [`skills/verify/skill.md`](../skills/verify/skill.md)
 — ideally someone (or some model instance) other than the executor. It
 records what was checked, how, and the outcome. Use
 [`templates/verification-report.md`](../templates/verification-report.md).

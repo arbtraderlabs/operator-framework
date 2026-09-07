@@ -11,7 +11,7 @@ the ticket) are in `tickets/done/`.
 
 ## Inputs
 
-- The ticket (see [`templates/ticket.md`](../templates/ticket.md)).
+- The ticket (see [`templates/ticket.md`](../../templates/ticket.md)).
 - The relevant section(s) of the specification it links to.
 - Any decision ledger entries the ticket references.
 
@@ -19,7 +19,7 @@ the ticket) are in `tickets/done/`.
 
 1. **Move the ticket to `tickets/in-progress/`** before starting — the
    ticket's location is its status (see
-   [`docs/ticket-system.md`](../docs/ticket-system.md)).
+   [`docs/TICKET_SYSTEM.md`](../../docs/TICKET_SYSTEM.md)).
 2. **Re-read the ticket's acceptance criteria** before starting work, and
    keep them visible throughout — they define "done" for this ticket, not
    a general sense of completeness.
@@ -43,9 +43,9 @@ the ticket) are in `tickets/done/`.
 ## Checkpoint
 
 None mandatory mid-execution, but do not mark the ticket complete yourself
-— that determination belongs to [`skills/report.md`](report.md) followed by
-independent [`skills/verify.md`](verify.md).
+— that determination belongs to [`skills/report/skill.md`](../report/skill.md) followed by
+independent [`skills/verify/skill.md`](../verify/skill.md).
 
 ## Next skill
 
-[`skills/report.md`](report.md)
+[`skills/report/skill.md`](../report/skill.md)

@@ -1,7 +1,7 @@
 # Decision Ledger: Monitoring Dashboard
 
 Append-only record of material decisions for this example project. See
-[`docs/decision-ledger.md`](../../docs/decision-ledger.md) for the rules
+[`docs/DECISION_LEDGER.md`](../../docs/DECISION_LEDGER.md) for the rules
 (entries are never edited after the fact; reversals get a new entry).
 
 ---

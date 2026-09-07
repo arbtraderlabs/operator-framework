@@ -7,7 +7,7 @@ proposed.
 
 ## When to use
 
-After [`skills/preflight.md`](preflight.md), whenever the request is
+After [`skills/preflight/skill.md`](../preflight/skill.md), whenever the request is
 ambiguous, open-ended, or could reasonably be interpreted several ways.
 
 ## Inputs
@@ -21,7 +21,7 @@ ambiguous, open-ended, or could reasonably be interpreted several ways.
    yet. If you can't do this in one paragraph, the request likely needs to
    be split or clarified further.
 2. **Identify actors, constraints, and out-of-scope items** — see
-   [`docs/domain.md`](../docs/domain.md) for the full structure of a domain
+   [`docs/DOMAIN.md`](../../docs/DOMAIN.md) for the full structure of a domain
    brief.
 3. **Surface assumptions explicitly.** List anything you're inferring
    rather than were told, and flag it for confirmation rather than silently
@@ -29,16 +29,16 @@ ambiguous, open-ended, or could reasonably be interpreted several ways.
 4. **Ask clarifying questions where it matters.** Prioritize questions that
    would change the solution shape, not ones that are merely nice to know.
 5. **Write the domain brief** using the structure in
-   [`docs/domain.md`](../docs/domain.md), keeping it generalized and
+   [`docs/DOMAIN.md`](../../docs/DOMAIN.md), keeping it generalized and
    synthetic — no real proprietary or private system details (see
-   [`docs/methodology.md#security-and-privacy`](../docs/methodology.md#security-and-privacy)).
+   [`docs/METHODOLOGY.md#security-and-privacy`](../../docs/METHODOLOGY.md#security-and-privacy)).
 6. **Log any material scoping decisions** in the project's decision ledger
-   using [`templates/decision-ledger-entry.md`](../templates/decision-ledger-entry.md).
+   using [`templates/decision.md`](../../templates/decision.md).
 
 ## Outputs
 
-- A domain brief (see [`docs/domain.md`](../docs/domain.md) for structure;
-  [`examples/monitoring-dashboard/DOMAIN.md`](../examples/monitoring-dashboard/DOMAIN.md)
+- A domain brief (see [`docs/DOMAIN.md`](../../docs/DOMAIN.md) for structure;
+  [`examples/monitoring-dashboard/DOMAIN.md`](../../examples/monitoring-dashboard/DOMAIN.md)
   for a worked example).
 - Decision ledger entries for any scoping choices made along the way.
 
@@ -50,4 +50,4 @@ here compounds through every later step.
 
 ## Next skill
 
-[`skills/write-spec.md`](write-spec.md)
+[`skills/write-spec/skill.md`](../write-spec/skill.md)

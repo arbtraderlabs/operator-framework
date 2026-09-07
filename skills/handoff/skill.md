@@ -9,7 +9,7 @@ memory.
 
 At the end of a session, whenever responsibility changes hands, before a
 long pause, or immediately if you must stop unexpectedly — see
-[`docs/handoff.md`](../docs/handoff.md) for the full list of triggers.
+[`docs/HANDOFF_PROTOCOL.md`](../../docs/HANDOFF_PROTOCOL.md) for the full list of triggers.
 
 ## Inputs
 
@@ -21,22 +21,22 @@ long pause, or immediately if you must stop unexpectedly — see
 
 1. **Confirm ticket locations are accurate.** Every ticket should already
    be in the lifecycle directory that reflects its true status (see
-   [`docs/ticket-system.md`](../docs/ticket-system.md)) — fix any drift
+   [`docs/TICKET_SYSTEM.md`](../../docs/TICKET_SYSTEM.md)) — fix any drift
    before writing the handoff note, don't describe drift instead of fixing
    it.
 2. **Confirm the decision ledger is current.** Any decision made this
    session should already be logged (see
-   [`docs/decision-ledger.md`](../docs/decision-ledger.md)) — don't defer
+   [`docs/DECISION_LEDGER.md`](../../docs/DECISION_LEDGER.md)) — don't defer
    logging into the handoff note itself.
 3. **Write the handoff note** using
-   [`templates/handoff.md`](../templates/handoff.md): current state,
+   [`templates/handoff.md`](../../templates/handoff.md): current state,
    what's done, what's next (specifically), blockers, and pointers.
 4. **Name the actual next action.** "Continue the work" is not sufficient —
    state the concrete next step.
 
 ## Outputs
 
-- A handoff note (see [`templates/handoff.md`](../templates/handoff.md)).
+- A handoff note (see [`templates/handoff.md`](../../templates/handoff.md)).
 - Tickets and decision ledger left in an accurate, current state.
 
 ## Checkpoint
@@ -48,7 +48,7 @@ you were the one resuming.
 ## Next skill
 
 Whichever skill the handoff note names as the next action — commonly
-[`skills/execute-ticket.md`](execute-ticket.md) or
-[`skills/verify.md`](verify.md), or
-[`skills/public-release.md`](public-release.md) if the project is ready to
+[`skills/execute-ticket/skill.md`](../execute-ticket/skill.md) or
+[`skills/verify/skill.md`](../verify/skill.md), or
+[`skills/public-release/skill.md`](../public-release/skill.md) if the project is ready to
 publish.

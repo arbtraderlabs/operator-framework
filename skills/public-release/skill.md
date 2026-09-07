@@ -21,7 +21,7 @@ visible outside the working team.
 
 1. **Confirm every relevant ticket is in `tickets/done/`** with a Pass or
    Pass-with-notes verification report and human sign-off (see
-   [`skills/verify.md`](verify.md)). Do not release work still in
+   [`skills/verify/skill.md`](../verify/skill.md)). Do not release work still in
    `in-progress` or `review`.
 2. **Scan for real proprietary or private material.** Search every artifact
    for real customer names, internal URLs, production credentials, or
@@ -34,12 +34,12 @@ visible outside the working team.
    ones.
 4. **Confirm the Influence Note is present** verbatim on every artifact
    that requires it (see
-   [`PRINCIPLES.md`](../PRINCIPLES.md#7-disclosure-over-ambiguity--the-influence-note)).
+   [`PRINCIPLES.md`](../../PRINCIPLES.md#7-disclosure-over-ambiguity--the-influence-note)).
 5. **Validate internal links and structure** — relative links between
    docs, skills, templates, and examples should resolve; the framework's
    own navigation is part of what's being released.
 6. **Get explicit human sign-off to publish.** This is mandatory (see
-   [`docs/adr/0004-human-verification-gate-before-release.md`](../docs/adr/0004-human-verification-gate-before-release.md))
+   [`docs/adr/ADR-004-git-native-ticketing.md`](../../docs/adr/ADR-004-git-native-ticketing.md))
    and is independent from the sign-off already obtained during `verify` —
    verification confirms the work is correct; this confirms it is safe and
    appropriate to make public.
@@ -60,4 +60,4 @@ Nothing is published without it.
 ## Next skill
 
 None — this is the final skill in the sequence for a given piece of work.
-If new work arises, return to [`skills/preflight.md`](preflight.md).
+If new work arises, return to [`skills/preflight/skill.md`](../preflight/skill.md).

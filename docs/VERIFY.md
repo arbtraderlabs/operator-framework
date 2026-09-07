@@ -3,7 +3,7 @@
 Verification is the independent check that executed work actually meets its
 specification and ticket's acceptance criteria — it is not the executor
 re-asserting their own work is correct. This document explains the standard;
-[`skills/verify.md`](../skills/verify.md) is the step-by-step procedure and
+[`skills/verify/skill.md`](../skills/verify/skill.md) is the step-by-step procedure and
 [`templates/verification-report.md`](../templates/verification-report.md)
 is the artifact it produces.
 
@@ -13,7 +13,7 @@ Execution and verification share an incentive problem: whoever did the work
 is motivated (even unconsciously) to see it as complete. Operator Framework
 treats verification as a distinct step with its own report, and recommends
 using a different model instance, fresh context, or human reviewer wherever
-practical (see [`docs/model-routing.md`](model-routing.md)).
+practical (see [`docs/MODEL_ROUTING.md`](MODEL_ROUTING.md)).
 
 ## What verification checks
 
@@ -45,7 +45,7 @@ Verification always requires an explicit human confirmation before a ticket
 is treated as truly done, even when a model performed the technical check.
 An AI-produced verification report is an input to that decision, not a
 replacement for it. This mirrors the same gate applied at
-[`skills/public-release.md`](../skills/public-release.md) before anything
+[`skills/public-release/skill.md`](../skills/public-release/skill.md) before anything
 goes public.
 
 ## Example

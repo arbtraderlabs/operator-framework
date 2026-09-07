@@ -11,12 +11,12 @@ stress different capabilities:
 
 | Capability | Skills that need it most |
 |---|---|
-| Ambiguity resolution, clarifying questions | [`resolve`](../skills/resolve.md) |
-| Long-form structured writing | [`write-spec`](../skills/write-spec.md), [`report`](../skills/report.md) |
-| Decomposition and dependency reasoning | [`plan-tickets`](../skills/plan-tickets.md) |
-| Mechanical, well-scoped execution | [`execute-ticket`](../skills/execute-ticket.md) |
-| Independent, skeptical review | [`verify`](../skills/verify.md) |
-| Careful policy/compliance checking | [`public-release`](../skills/public-release.md) |
+| Ambiguity resolution, clarifying questions | [`resolve`](../skills/resolve/skill.md) |
+| Long-form structured writing | [`write-spec`](../skills/write-spec/skill.md), [`report`](../skills/report/skill.md) |
+| Decomposition and dependency reasoning | [`plan-tickets`](../skills/plan-tickets/skill.md) |
+| Mechanical, well-scoped execution | [`execute-ticket`](../skills/execute-ticket/skill.md) |
+| Independent, skeptical review | [`verify`](../skills/verify/skill.md) |
+| Careful policy/compliance checking | [`public-release`](../skills/public-release/skill.md) |
 
 ## A simple routing framework
 
@@ -32,7 +32,7 @@ stress different capabilities:
    of the verifier inheriting the executor's blind spots.
 4. **Re-evaluate per project, not once globally**: model capabilities and
    costs change quickly; treat routing choices as a living decision, logged
-   like any other (see [`docs/decision-ledger.md`](decision-ledger.md)),
+   like any other (see [`docs/DECISION_LEDGER.md`](DECISION_LEDGER.md)),
    not a permanent architectural commitment.
 
 ## What this framework does not do
@@ -48,5 +48,5 @@ stress different capabilities:
 
 If a project deliberately routes specific skills to specific model classes,
 record that choice in the decision ledger using
-[`templates/decision-ledger-entry.md`](../templates/decision-ledger-entry.md)
+[`templates/decision.md`](../templates/decision.md)
 so future contributors understand why, and can revisit it as models change.

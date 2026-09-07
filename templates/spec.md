@@ -2,8 +2,8 @@
 
 Copy this file to `SPEC.md` (or a per-feature spec file) at the root of the
 project being specified. Produced by
-[`skills/write-spec.md`](../skills/write-spec.md) from the domain brief
-(see [`docs/domain.md`](../docs/domain.md)).
+[`skills/write-spec/skill.md`](../skills/write-spec/skill.md) from the domain brief
+(see [`docs/DOMAIN.md`](../docs/DOMAIN.md)).
 
 ---
 
@@ -36,7 +36,7 @@ Numbered, specific, and each one testable. Group by area if useful.
 
 ## Design overview
 
-Enough detail that [`skills/plan-tickets.md`](../skills/plan-tickets.md) can
+Enough detail that [`skills/plan-tickets/skill.md`](../skills/plan-tickets/skill.md) can
 decompose this into tickets without re-deriving the approach. Diagrams,
 data shapes, and flows as needed — synthetic examples only.
 

@@ -13,16 +13,16 @@ For each ticket in `tickets/review/`, after its execution report exists.
 
 - The ticket, its acceptance criteria, and the relevant spec section.
 - The execution report (see
-  [`templates/execution-report.md`](../templates/execution-report.md)).
+  [`templates/execution-report.md`](../../templates/execution-report.md)).
 
 ## Procedure
 
 1. **Use a different vantage point than the executor where practical** — a
    different model instance, fresh context, or a human reviewer (see
-   [`docs/model-routing.md`](../docs/model-routing.md)). Do not simply
+   [`docs/MODEL_ROUTING.md`](../../docs/MODEL_ROUTING.md)). Do not simply
    re-read the execution report and agree with it.
 2. **Check every acceptance criterion explicitly**, with specific evidence
-   — not "looks fine." See [`docs/verify.md`](../docs/verify.md) for the
+   — not "looks fine." See [`docs/VERIFY.md`](../../docs/VERIFY.md) for the
    full standard.
 3. **Check spec conformance and scope** — confirm the work matches the
    spec and didn't quietly expand or shrink scope without a logged
@@ -31,10 +31,10 @@ For each ticket in `tickets/review/`, after its execution report exists.
    proprietary/private data were introduced, and that the Influence Note is
    present on produced artifacts.
 5. **Write the verification report** using
-   [`templates/verification-report.md`](../templates/verification-report.md),
+   [`templates/verification-report.md`](../../templates/verification-report.md),
    recording Pass, Pass with notes, or Fail with specifics.
 6. **Get explicit human sign-off** — this is mandatory (see
-   [`docs/adr/0004-human-verification-gate-before-release.md`](../docs/adr/0004-human-verification-gate-before-release.md)).
+   [`docs/adr/ADR-004-git-native-ticketing.md`](../../docs/adr/ADR-004-git-native-ticketing.md)).
    An AI-produced finding is an input to this decision, not a substitute
    for it.
 7. **Move the ticket** to `tickets/done/` on Pass or Pass-with-notes, or
@@ -43,7 +43,7 @@ For each ticket in `tickets/review/`, after its execution report exists.
 ## Outputs
 
 - A verification report (see
-  [`examples/monitoring-dashboard/reports/verification-report.md`](../examples/monitoring-dashboard/reports/verification-report.md)).
+  [`examples/monitoring-dashboard/reports/verification-report.md`](../../examples/monitoring-dashboard/reports/verification-report.md)).
 - The ticket moved to its correct next lifecycle stage.
 
 ## Checkpoint
@@ -53,7 +53,7 @@ proceed past this step without it.
 
 ## Next skill
 
-[`skills/handoff.md`](handoff.md) if work is pausing, otherwise return to
-[`skills/execute-ticket.md`](execute-ticket.md) for the next ticket, or
-[`skills/public-release.md`](public-release.md) once all relevant tickets
+[`skills/handoff/skill.md`](../handoff/skill.md) if work is pausing, otherwise return to
+[`skills/execute-ticket/skill.md`](../execute-ticket/skill.md) for the next ticket, or
+[`skills/public-release/skill.md`](../public-release/skill.md) once all relevant tickets
 are done and the project is ready to publish.

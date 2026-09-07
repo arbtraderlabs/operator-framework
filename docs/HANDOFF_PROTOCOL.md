@@ -4,7 +4,7 @@ Work under Operator Framework must be resumable by a different human, a
 different model, or the same participant after a long gap — without needing
 to reconstruct context from memory or scrollback. This document describes
 when and how to hand work off; the mechanics of writing the note are in
-[`skills/handoff.md`](../skills/handoff.md) and
+[`skills/handoff/skill.md`](../skills/handoff/skill.md) and
 [`templates/handoff.md`](../templates/handoff.md).
 
 ## When to hand off
@@ -21,7 +21,7 @@ not. When uncertain whether a handoff note is warranted, write one.
 ## What a handoff note must answer
 
 1. **State** — which ticket(s)/spec are in play, and their current
-   lifecycle stage (see [`docs/ticket-system.md`](ticket-system.md)).
+   lifecycle stage (see [`docs/TICKET_SYSTEM.md`](TICKET_SYSTEM.md)).
 2. **What's done** — concretely, not "mostly finished."
 3. **What's next** — the specific next action, not a vague area of work.
 4. **Blockers** — anything the next person/model needs from someone else

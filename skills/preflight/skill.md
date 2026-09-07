@@ -12,12 +12,12 @@ or context changes materially (new stakeholders, new systems in play).
 
 - The raw request, however informal.
 - Any existing project artifacts if this is ongoing work (spec, tickets,
-  decision ledger — see [`docs/methodology.md`](../docs/methodology.md)).
+  decision ledger — see [`docs/METHODOLOGY.md`](../../docs/METHODOLOGY.md)).
 
 ## Procedure
 
 1. **Confirm you understand the ask at a high level** — not full
-   resolution yet (that's [`skills/resolve.md`](resolve.md)), just enough
+   resolution yet (that's [`skills/resolve/skill.md`](../resolve/skill.md)), just enough
    to know what kind of work this is.
 2. **Check for existing state.** If a project directory, spec, or ticket
    backlog already exists, read it before proceeding — don't restart work
@@ -32,10 +32,10 @@ or context changes materially (new stakeholders, new systems in play).
    If it does, flag this explicitly — synthetic/generalized versions only
    belong in tracked artifacts.
 5. **Decide the path.** Is this ambiguous enough to need
-   [`skills/resolve.md`](resolve.md), or clear enough to go straight to
-   [`skills/write-spec.md`](write-spec.md) or even directly to a single
+   [`skills/resolve/skill.md`](../resolve/skill.md), or clear enough to go straight to
+   [`skills/write-spec/skill.md`](../write-spec/skill.md) or even directly to a single
    ticket for trivial work (see
-   [`docs/methodology.md#when-to-deviate`](../docs/methodology.md#when-to-deviate))?
+   [`docs/METHODOLOGY.md#when-to-deviate`](../../docs/METHODOLOGY.md#when-to-deviate))?
 
 ## Outputs
 
@@ -51,5 +51,5 @@ treat that as a stop-and-confirm point before continuing.
 
 ## Next skill
 
-[`skills/resolve.md`](resolve.md) for ambiguous requests, or
-[`skills/write-spec.md`](write-spec.md) if the problem is already clear.
+[`skills/resolve/skill.md`](../resolve/skill.md) for ambiguous requests, or
+[`skills/write-spec/skill.md`](../write-spec/skill.md) if the problem is already clear.

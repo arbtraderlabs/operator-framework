@@ -1,7 +1,7 @@
 # Handoff Note Template
 
-Produced by [`skills/handoff.md`](../skills/handoff.md) whenever work
-pauses or changes hands. See [`docs/handoff.md`](../docs/handoff.md) for
+Produced by [`skills/handoff/skill.md`](../skills/handoff/skill.md) whenever work
+pauses or changes hands. See [`docs/HANDOFF_PROTOCOL.md`](../docs/HANDOFF_PROTOCOL.md) for
 when to write one.
 
 ---

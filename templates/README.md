@@ -7,12 +7,12 @@ and sessions.
 
 | Template | Used by | Produces |
 |---|---|---|
-| [`ticket.md`](ticket.md) | [`skills/plan-tickets.md`](../skills/plan-tickets.md) | A single ticket (see [`docs/ticket-system.md`](../docs/ticket-system.md)) |
-| [`spec.md`](spec.md) | [`skills/write-spec.md`](../skills/write-spec.md) | A project/feature specification |
-| [`decision-ledger-entry.md`](decision-ledger-entry.md) | Any skill, when a material decision is made | One entry in `DECISIONS.md` (see [`docs/decision-ledger.md`](../docs/decision-ledger.md)) |
-| [`execution-report.md`](execution-report.md) | [`skills/report.md`](../skills/report.md) | An execution report |
-| [`verification-report.md`](verification-report.md) | [`skills/verify.md`](../skills/verify.md) | A verification report |
-| [`handoff.md`](handoff.md) | [`skills/handoff.md`](../skills/handoff.md) | A handoff note |
+| [`ticket.md`](ticket.md) | [`skills/plan-tickets/skill.md`](../skills/plan-tickets/skill.md) | A single ticket (see [`docs/TICKET_SYSTEM.md`](../docs/TICKET_SYSTEM.md)) |
+| [`spec.md`](spec.md) | [`skills/write-spec/skill.md`](../skills/write-spec/skill.md) | A project/feature specification |
+| [`decision.md`](decision.md) | Any skill, when a material decision is made | One entry in `DECISIONS.md` (see [`docs/DECISION_LEDGER.md`](../docs/DECISION_LEDGER.md)) |
+| [`execution-report.md`](execution-report.md) | [`skills/report/skill.md`](../skills/report/skill.md) | An execution report |
+| [`verification-report.md`](verification-report.md) | [`skills/verify/skill.md`](../skills/verify/skill.md) | A verification report |
+| [`handoff.md`](handoff.md) | [`skills/handoff/skill.md`](../skills/handoff/skill.md) | A handoff note |
 
 Every template that produces a shareable artifact includes the exact
 Influence Note defined in

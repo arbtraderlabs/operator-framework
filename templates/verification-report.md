@@ -1,8 +1,8 @@
 # Verification Report Template
 
-Produced by [`skills/verify.md`](../skills/verify.md), independently of
+Produced by [`skills/verify/skill.md`](../skills/verify/skill.md), independently of
 whoever executed the ticket where practical. See
-[`docs/verify.md`](../docs/verify.md) for the standard this report must
+[`docs/VERIFY.md`](../docs/VERIFY.md) for the standard this report must
 meet.
 
 ---
@@ -47,7 +47,7 @@ introduced (see
 **Date:** YYYY-MM-DD
 
 A verification report is not final until this section is completed by a
-human, per [`docs/adr/0004-human-verification-gate-before-release.md`](../docs/adr/0004-human-verification-gate-before-release.md).
+human, per [`docs/adr/ADR-004-git-native-ticketing.md`](../docs/adr/ADR-004-git-native-ticketing.md).
 
 ## Influence Note
 

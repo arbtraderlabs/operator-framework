@@ -13,13 +13,13 @@ untracked state.
 ## Decision
 
 Work is decomposed into tickets (see
-[`docs/ticket-system.md`](../ticket-system.md) and
+[`docs/TICKET_SYSTEM.md`](../TICKET_SYSTEM.md) and
 [`templates/ticket.md`](../../templates/ticket.md)), and each ticket's
 status is represented by which lifecycle directory it physically lives in:
 `tickets/backlog/` → `tickets/in-progress/` → `tickets/review/` →
 `tickets/done/`, with an explicit rejection path back from `review` to
 `in-progress` on a failed verification (see
-[`docs/verify.md`](../verify.md)).
+[`docs/VERIFY.md`](../VERIFY.md)).
 
 ## Consequences
 
@@ -34,5 +34,5 @@ status is represented by which lifecycle directory it physically lives in:
   the consistency guarantee.
 - **Negative:** Doesn't by itself prevent large tickets; ticket size is a
   discipline enforced during `plan-tickets` (see
-  [`skills/plan-tickets.md`](../../skills/plan-tickets.md)), not by the
+  [`skills/plan-tickets/skill.md`](../../skills/plan-tickets/skill.md)), not by the
   directory structure.

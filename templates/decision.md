@@ -1,7 +1,7 @@
 # Decision Ledger Entry Template
 
 Append a copy of this entry (numbered sequentially) to the project's
-`DECISIONS.md`. See [`docs/decision-ledger.md`](../docs/decision-ledger.md)
+`DECISIONS.md`. See [`docs/DECISION_LEDGER.md`](../docs/DECISION_LEDGER.md)
 for what qualifies as a decision and the append-only rule — entries are
 never edited after the fact; reversals get a new entry.
 

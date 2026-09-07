@@ -39,8 +39,8 @@ on conversational memory.
 ## Quick start
 
 1. Read [`PRINCIPLES.md`](PRINCIPLES.md) and [`AGENTS.md`](AGENTS.md).
-2. Read [`docs/methodology.md`](docs/methodology.md) for the end-to-end flow.
-3. Walk through the skills in order, starting at [`skills/preflight.md`](skills/preflight.md).
+2. Read [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) for the end-to-end flow.
+3. Walk through the skills in order, starting at [`skills/preflight/skill.md`](skills/preflight/skill.md).
 4. Study [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) to see the framework applied to a full (synthetic) project.
 
 ## The skill sequence
@@ -51,7 +51,7 @@ preflight → resolve → write-spec → plan-tickets → execute-ticket → rep
 
 Each skill is documented independently in [`skills/`](skills/) and consumes or
 produces artifacts described in [`docs/`](docs/) and [`templates/`](templates/).
-See [`docs/methodology.md`](docs/methodology.md) for how they fit together.
+See [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) for how they fit together.
 
 ## Security and privacy
 
@@ -60,8 +60,8 @@ See [`docs/methodology.md`](docs/methodology.md) for how they fit together.
   material from any real project appear here or should ever be added.
 - Do not paste real secrets, tokens, internal URLs, or private business
   logic into any ticket, spec, or report created from these templates.
-- See [`docs/methodology.md#security-and-privacy`](docs/methodology.md#security-and-privacy)
-  and [`skills/public-release.md`](skills/public-release.md) for the checks
+- See [`docs/METHODOLOGY.md#security-and-privacy`](docs/METHODOLOGY.md#security-and-privacy)
+  and [`skills/public-release/skill.md`](skills/public-release/skill.md) for the checks
   run before anything derived from this framework is made public.
 
 ## Status
