@@ -1,10 +1,15 @@
 # Operator Framework
 
-```
+```text
+   ____                        __
+  / __ \____  ___  _________ _/ /_____  _____
+ / / / / __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/
+/ /_/ / /_/ /  __/ /  / /_/ / /_/ /_/ / /
+\____/ .___/\___/_/   \__,_/\__/\____/_/
+    /_/
+
 operator-framework
-==================
-RESOLVE -> SPEC -> ROUTE
-        -> EXECUTE -> REPORT -> VERIFY
+resolve -> spec -> route -> execute -> report -> verify
 ```
 
 **Version:** v0.1 (initial public release)
@@ -30,18 +35,36 @@ specific vendor's API, branding, or tooling.
 
 ## How it works
 
-```mermaid
-flowchart LR
-    A[Idea / Request] --> B[Resolve]
-    B --> C[Spec]
-    C --> D[Plan tickets]
-    D --> E[Route]
-    E --> F[Execute]
-    F --> G[Report]
-    G --> H[Verify]
-    H --> I{Accepted?}
-    I -- Yes --> J[Done]
-    I -- No --> D
+```text
+     idea / request
+           |
+           v
+       resolve
+           |
+           v
+        spec
+           |
+           v
+    plan tickets
+           |
+           v
+        route
+           |
+           v
+       execute
+           |
+           v
+        report
+           |
+           v
+        verify
+           |
+           v
+      accepted? -- no --> plan tickets
+           |
+           | yes
+           v
+         done
 ```
 
 A request becomes an agreed problem, a written spec, bounded tickets, a routed
