@@ -1,0 +1,25 @@
+# macOS / Linux
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs and temp files
+*.log
+*.tmp
+.cache/
+
+# Environment / secrets (never commit real credentials)
+.env
+.env.*
+*.pem
+*.key
+secrets/
+
+# Dependency and build artifacts (repo is documentation-only, kept for safety)
+node_modules/
+dist/
+build/
