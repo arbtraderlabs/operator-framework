@@ -72,6 +72,57 @@ model assignment, executed work, a structured report, and independent
 verification. Work that fails verification returns to ticket planning as a
 corrective ticket — it is never accepted on the executor's say-so.
 
+## The OPERATE Method
+
+This lifecycle has a human-facing name: **the OPERATE Method** — Orient, Pin
+down, Establish, Route, Act, Trace, Evaluate. OPERATE is the methodology; the
+existing skills are the reusable operational steps used to implement it, and
+they keep their own names (`preflight`, `resolve`, `write-spec`,
+`plan-tickets`, `execute-ticket`, `report`, `verify`, `handoff`,
+`public-release`). The seven stages:
+
+```text
+O  ORIENT      understand before building
+P  PIN DOWN    vocabulary + decisions + spec
+E  ESTABLISH   create bounded tickets
+R  ROUTE       choose capability by risk / cost
+A  ACT         execute scoped work
+T  TRACE       return evidence
+E  EVALUATE    independently verify
+```
+
+- **Orient** — inspect the problem, resolve ambiguity, understand the
+  environment and constraints (`preflight`, `resolve`).
+- **Pin down** — turn shared understanding into durable context: vocabulary,
+  decisions, requirements, and the spec (`DOMAIN.md`, ADRs / decision
+  ledger, `write-spec`).
+- **Establish** — turn the spec into bounded, ordered tickets with
+  acceptance criteria and dependencies (`plan-tickets`, ticket lifecycle).
+- **Route** — choose the execution capability by ambiguity, risk, complexity,
+  and cost. Spend intelligence where intelligence changes the outcome
+  ([`docs/MODEL_ROUTING.md`](docs/MODEL_ROUTING.md)).
+- **Act** — execute one scoped ticket within its boundaries; stop on
+  blockers instead of inventing scope (`execute-ticket`).
+- **Trace** — return a structured, portable record of what changed, what was
+  validated, and what remains open. The report is the evidence interface,
+  not the chat transcript (`report`).
+- **Evaluate** — independently test the result against the spec and ticket
+  (`verify`):
+
+```text
+evaluate -- pass --> accept
+     |
+     +-- fail --> corrective ticket -> route -> act -> trace -> evaluate
+```
+
+Two supporting lifecycle controls sit alongside OPERATE rather than inside
+the acronym:
+
+- **Handoff** — context compression for pausing and resuming work across
+  chats, models, machines, or long gaps.
+- **Public release** — the final publication, security, and privacy gate
+  before anything becomes public.
+
 ## Why it works
 
 - **Resolve first** — align the user's intent with the model before building.
