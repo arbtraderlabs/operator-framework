@@ -66,6 +66,119 @@ T  TRACE       return structured evidence and execution state
 E  EVALUATE    independently verify the result against the agreed contract
 ```
 
+Mapped to the plain-English workflow, each OPERATE stage sits above the real
+actions that realise it:
+
+```text
+┌───────────────┐
+│    ORIENT     │
+└──────┬────────┘
+       │
+       ▼
+ idea / request
+       │
+       ▼
+resolve ambiguity
+       │
+       ▼
+understand the problem
+       │
+       ▼
+┌───────────────┐
+│   PIN DOWN    │
+└──────┬────────┘
+       │
+       ▼
+shared vocabulary
+       │
+       ▼
+decisions / ADRs
+       │
+       ▼
+      spec
+       │
+       ▼
+┌───────────────┐
+│   ESTABLISH   │
+└──────┬────────┘
+       │
+       ▼
+  plan tickets
+       │
+       ▼
+acceptance criteria
+       │
+       ▼
+  bounded scope
+       │
+       ▼
+┌───────────────┐
+│     ROUTE     │
+└──────┬────────┘
+       │
+       ▼
+choose execution
+      path
+       │
+       ▼
+┌───────────────┐
+│      ACT      │
+└──────┬────────┘
+       │
+       ▼
+    execute
+       │
+       ▼
+┌───────────────┐
+│     TRACE     │
+└──────┬────────┘
+       │
+       ▼
+structured report
+       │
+       ▼
+    evidence
+       │
+       ▼
+┌───────────────┐
+│   EVALUATE    │
+└──────┬────────┘
+       │
+       ▼
+     verify
+       │
+       ▼
+   accepted?
+     /    \
+   yes     no
+    |       |
+    v       v
+   DONE   corrective
+           ticket
+             |
+             v
+      ┌───────────────┐
+      │   ESTABLISH   │
+      └──────┬────────┘
+             |
+             v
+        plan tickets
+             |
+             v
+      ┌───────────────┐
+      │     ROUTE     │
+      └──────┬────────┘
+             |
+             v
+       execution path
+             |
+             v
+            ACT
+```
+
+The corrective loop re-enters at ESTABLISH and runs ROUTE → ACT → TRACE →
+EVALUATE again until the work is accepted.
+
 Each stage answers a question:
 
 - **ORIENT** — *"What are we actually trying to do?"* Inspect the problem
