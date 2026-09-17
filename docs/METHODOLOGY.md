@@ -9,6 +9,12 @@ Before entering this flow, a human normally starts with the
 inspects the repository and routes into the appropriate step below —
 resuming from durable state rather than restarting planning.
 
+For an established project that already has a meaningful workflow, `/operate`
+may first route through the optional [`adopt`](../skills/adopt/skill.md)
+assessment. `adopt` maps existing practice onto OPERATE, preserves what already
+works, and identifies only the gaps that materially improve delivery. It is an
+entry path, not an additional lifecycle stage.
+
 ## The flow
 
 ```
@@ -53,6 +59,33 @@ sessions — including cheaper execution models — implement what was agreed
 rather than re-deriving or silently extending it. Keep specs detailed enough
 to constrain execution, and no more detailed than necessary.
 
+## Environment awareness
+
+Environment awareness supports the lifecycle; it does not add another stage.
+Use it to keep execution and delivery on course when repositories, deployment
+targets, runtime environments, or real-world side effects matter.
+
+The framework distinguishes between **repository/workspace responsibility**
+and **runtime environment**. A project may already have suitable controls in
+runbooks, CI/CD rules, repository guards, deployment maps, branches, tests,
+containers, or other mechanisms. Reuse those controls before creating new
+Operator artifacts.
+
+When expected and observed state differ, respond proportionally:
+
+```text
+consistent / low consequence  -> continue
+unexpected / uncertain        -> warn and check
+clear consequential conflict  -> stop
+```
+
+A mismatch is evidence to investigate, not automatically a failure. For
+example, implementation may be correct while the observed promotion target
+does not match the expected release path; that should be surfaced without
+reclassifying the implementation itself as failed.
+
+See [`docs/ENVIRONMENT_GUARDRAILS.md`](ENVIRONMENT_GUARDRAILS.md).
+
 ## Core artifacts
 
 | Artifact | Produced by | Template |
@@ -64,6 +97,8 @@ to constrain execution, and no more detailed than necessary.
 | Execution report | `report` | [`templates/execution-report.md`](../templates/execution-report.md) |
 | Verification report | `verify` | [`templates/verification-report.md`](../templates/verification-report.md) |
 | Handoff note | `handoff` | [`templates/handoff.md`](../templates/handoff.md) |
+| Adoption assessment | optional `adopt` entry path | [`templates/adoption-assessment.md`](../templates/adoption-assessment.md) |
+| Environment contract | when a real visibility gap exists | [`templates/environment-contract.md`](../templates/environment-contract.md) |
 
 ## Routing (ROUTE)
 
@@ -102,3 +137,8 @@ The sequence above is the default, not a straitjacket. Trivial, low-risk
 tickets may reasonably compress `resolve` and `write-spec` into a short
 paragraph inside the ticket itself — but the decision to compress should
 itself be logged in the decision ledger, not silently assumed.
+
+The same proportionality applies to v0.3 additions: do not create an adoption
+assessment, environment contract, or extra deployment tier when existing
+project evidence already answers the relevant question. Add structure where it
+closes a real delivery, safety, or verification gap.

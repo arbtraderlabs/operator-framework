@@ -36,11 +36,13 @@ where the target is obvious and low-risk._
 - **Target environment:** <project-defined name: DEV / SIM / STAGING / PROD / PUBLIC / other>
 - **Permitted actions:** <what this ticket may do there>
 - **Forbidden actions:** <important boundary if non-obvious>
-- **Promotion / rollback:** <relevant path or reference to ENVIRONMENTS.md>
+- **Promotion / rollback:** <relevant path or reference to ENVIRONMENTS.md or equivalent>
 
-The executor must stop on an environment mismatch rather than treating two
-environments as interchangeable. See
-[`docs/ENVIRONMENT_GUARDRAILS.md`](../docs/ENVIRONMENT_GUARDRAILS.md).
+If expected and observed environment state differ, do not assume the two are
+interchangeable. Surface the mismatch and assess its consequence: continue
+when the difference is understood and contained, warn when it looks
+inconsistent, and stop before a clear consequential or forbidden action.
+See [`docs/ENVIRONMENT_GUARDRAILS.md`](../docs/ENVIRONMENT_GUARDRAILS.md).
 
 ### Route
 
