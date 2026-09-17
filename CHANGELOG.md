@@ -6,8 +6,8 @@
 
 - Environment guardrail doctrine defining safe experimentation boundaries without forcing every project to create a dedicated simulation tier.
 - Reusable `ENVIRONMENTS.md` contract template.
-- Unknown-environment protection: consequential actions stop until the active environment is classified.
-- Environment mismatch stop condition for execution.
+- Proportional environment handling: continue when state is consistent or low-risk, warn when something does not fit the expected path, and stop only for clear consequential or explicitly forbidden mismatches.
+- Unknown-environment protection for consequential actions whose impact cannot be safely bounded.
 - Optional target-environment block for operational tickets.
 - Existing-project `adopt` assessment skill that maps current practice onto OPERATE rather than forcing a rewrite.
 - Evidence-based adoption classifications: Established, Partial, Missing, Not needed yet.
@@ -17,8 +17,10 @@
 ### Changed
 
 - `/operate` now recognises established non-Operator projects and can route them to adoption assessment.
-- `preflight` now explicitly establishes environment identity and the safe experimentation boundary before consequential execution.
+- `preflight` now applies environment awareness proportionally before consequential execution and reuses existing project controls where possible.
+- `execute-ticket` now checks environment/workspace alignment when the ticket or side effects make it relevant.
 - `AGENTS.md` now requires environment identification before consequential actions.
+- Repository/workspace responsibility is treated separately from runtime environment so generated output, release, marketing, infrastructure, and development repositories are not assumed to be interchangeable.
 
 ### Versioning
 
