@@ -4,7 +4,7 @@
    ____                        __
   / __ \____  ___  _________ _/ /_____  _____
  / / / / __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/
-/ /_/ / /_/ /  __/ /  / /_/ / /_/ /_/ / /
+/ /_/ / /_/ /  __/ /  / /_/ / /_/ / /
 \____/ .___/\___/_/   \__,_/\__/\____/_/
     /_/
 
@@ -12,10 +12,22 @@ operator-framework
 resolve -> spec -> route -> execute -> report -> verify
 ```
 
-**Version:** v0.2 (operational routing + verification contracts)
+**Version:** v0.3.0 (environment awareness + existing-project adoption)
 
 > A spec-driven, cost-aware methodology for planning, routing, executing and
 > validating work with AI agents.
+
+## Delivery objective
+
+Operator exists to help work reach the right end state: **verified product
+delivery**. The process is there to keep the build on course, not to create
+ceremony for its own sake.
+
+Take the simplest safe path that preserves correctness, recoverability,
+clarity and verification. If the road ahead is clear, keep moving. If
+something does not fit the expected state, surface it. Stop only when the
+mismatch is sufficiently clear and consequential that continuing would be
+unsafe or would violate an explicit project boundary.
 
 ## The problem
 
@@ -245,6 +257,38 @@ Two lifecycle controls sit alongside OPERATE rather than inside the acronym:
 - **Public release** — the final publication, security, and privacy gate
   before anything becomes public.
 
+## v0.3 additions
+
+v0.3 extends the existing method without replacing the lifecycle above.
+
+### Environment awareness
+
+Operator now distinguishes between **repository/workspace responsibility**
+and **runtime environment**. A project does not need DEV, SIM, STAGING and
+PROD tiers simply to satisfy the framework; it needs a clear answer to where
+experimentation is safe and which boundaries are consequential.
+
+Environment inconsistencies are handled proportionally:
+
+```text
+expected state matches observed state  -> continue
+something does not smell right          -> flag it and recommend a check
+clear consequential / forbidden action  -> stop before execution
+```
+
+This keeps guardrails useful without turning every difference into a gate.
+See [`docs/ENVIRONMENT_GUARDRAILS.md`](docs/ENVIRONMENT_GUARDRAILS.md).
+
+### Existing-project adoption
+
+Operator can also assess a project that already has useful engineering
+practice. The supporting [`adopt`](skills/adopt/skill.md) skill maps existing
+evidence onto OPERATE, preserves what already works, identifies genuine gaps,
+and recommends the smallest useful migration rather than forcing a rewrite.
+
+Reusable lessons discovered during adoption may be proposed back to Operator
+as an issue or pull request, but framework changes remain human-reviewed.
+
 ## Why it works
 
 - **Resolve first** — align the user's intent with the model before building.
@@ -260,6 +304,8 @@ Two lifecycle controls sit alongside OPERATE rather than inside the acronym:
   without replaying an entire session.
 - **Verify independently** — "done" is a claim until an independent check, with
   human sign-off, confirms it against the spec.
+- **Add only useful friction** — preserve the straight path when risk is low;
+  flag anomalies and reserve hard stops for clear consequential conflicts.
 
 ## Cost-aware model routing
 
@@ -299,16 +345,22 @@ Start or resume a project with the entry skill:
 
 It inspects the repository, determines the current OPERATE stage, and
 routes into the workflow skills below — it does not restart planning that
-is already captured. To understand the framework from scratch instead:
+is already captured. If the project already has a meaningful non-Operator
+workflow, `/operate` may suggest an adoption assessment instead of restarting
+at ORIENT.
+
+To understand the framework from scratch instead:
 
 1. Read [`PRINCIPLES.md`](PRINCIPLES.md) — operating principles, including the
    Influence Note disclosure standard.
 2. Read [`AGENTS.md`](AGENTS.md) — how an AI agent should behave inside the
    framework.
 3. Read [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — the end-to-end flow.
-4. Start at [`skills/preflight/skill.md`](skills/preflight/skill.md) and walk
+4. Read [`docs/ENVIRONMENT_GUARDRAILS.md`](docs/ENVIRONMENT_GUARDRAILS.md) when
+   the project has operational or deployment boundaries.
+5. Start at [`skills/preflight/skill.md`](skills/preflight/skill.md) and walk
    through the skills in order.
-5. Study [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) to
+6. Study [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) to
    see the framework applied to a full (synthetic) project.
 
 ## Skills
@@ -332,6 +384,10 @@ documented independently in [`skills/`](skills/). `verify` and
 | `handoff` | Compress context for continuation |
 | `public-release` | Apply the final publication gate |
 
+The optional supporting [`adopt`](skills/adopt/skill.md) skill assesses an
+existing project and maps its current practice onto OPERATE without adding a
+new lifecycle stage.
+
 The templates each skill reads and writes live in [`templates/`](templates/).
 See [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) for how they fit together.
 
@@ -339,11 +395,13 @@ See [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) for how they fit together.
 
 | Path | Purpose |
 |---|---|
+| [`VERSION`](VERSION) | Current framework version. |
+| [`CHANGELOG.md`](CHANGELOG.md) | Versioned framework changes. |
 | [`PRINCIPLES.md`](PRINCIPLES.md) | Core operating principles, including the Influence Note disclosure standard. |
 | [`AGENTS.md`](AGENTS.md) | How any AI agent/model should behave when operating inside this framework. |
-| [`docs/`](docs/) | Methodology, model routing, domain framing, decision ledger, reporting, ticket system, handoff, and verification guidance. |
+| [`docs/`](docs/) | Methodology, environment guardrails, model routing, domain framing, decision ledger, reporting, ticket system, handoff, and verification guidance. |
 | [`docs/adr/`](docs/adr/) | Architecture Decision Records explaining why the framework is built this way. |
-| [`skills/`](skills/) | The `/operate` entry skill plus nine sequential workflow skills that operationalize the methodology. |
+| [`skills/`](skills/) | The `/operate` entry skill, nine sequential workflow skills, and optional supporting skills such as `adopt`. |
 | [`templates/`](templates/) | Reusable templates referenced by the skills and docs. |
 | [`tickets/`](tickets/) | Lifecycle directories (`backlog` → `in-progress` → `review` → `done`) for real work using this framework. |
 | [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) | A complete worked example, end to end, using synthetic data only. |
@@ -372,12 +430,11 @@ replaying the whole project. See
 
 ## Status
 
-v0.2 is a documentation-and-contracts release building on v0.1: ROUTE now
-covers execution mechanism, context, verification, and escalation, and
-tickets may carry non-default **Route** overrides so verification can be
-planned before execution. The methodology, skills, templates, and one
-worked example remain complete and usable today; programmatic enforcement
-remains out of scope.
+v0.3 builds on the v0.2 routing and verification contracts without replacing
+them. It adds environment/repository awareness, proportional mismatch handling,
+and an adoption path for established projects. The methodology, skills,
+templates, and worked example remain documentation-and-contract driven;
+programmatic enforcement remains out of scope.
 
 ## License
 

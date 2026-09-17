@@ -10,6 +10,8 @@ the wrong repository, branch, machine, account, or stale project state — or
 with missing access that only surfaces mid-execution. Recovery from the wrong
 environment costs far more than the check that avoids it.
 
+Preflight should remove avoidable mistakes without turning routine work into ceremony.
+
 ## When to use
 
 At the very start of engaging with a new request, whenever scope or context
@@ -21,7 +23,7 @@ environment boundary is unknown or stale.
 - The raw request, however informal.
 - Any existing project artifacts if this is ongoing work (spec, tickets,
   decision ledger — see [`docs/METHODOLOGY.md`](../../docs/METHODOLOGY.md)).
-- `ENVIRONMENTS.md` when the project has one.
+- `ENVIRONMENTS.md` or equivalent environment/release documentation when the project has it.
 
 ## Procedure
 
@@ -33,20 +35,22 @@ environment boundary is unknown or stale.
    read it before proceeding. If this is an established non-Operator project,
    consider [`skills/adopt/skill.md`](../adopt/skill.md) rather than restarting
    its planning process.
-3. **Identify the active environment.** Establish the repository, branch,
-   host/account/namespace role where relevant, and whether it is local/dev,
+3. **Identify the active environment where it matters.** Establish the repository,
+   branch, host/account/namespace role where relevant, and whether it is local/dev,
    test/sim, staging/candidate, production/live, public/release, or another
-   project-defined class. Prefer the project's own vocabulary.
+   project-defined class. Do not demand details that do not affect the requested work.
 4. **Find the safe experimentation boundary.** Determine where development,
-   debugging, destructive testing, and production-like validation are allowed.
-   Do **not** require a dedicated simulation environment when local isolation,
-   tests, containers, branches, or another mechanism are sufficient for the
-   project's actual risk.
-5. **Read or establish the environment contract.** For operational or
-   multi-environment projects, read `ENVIRONMENTS.md`. If consequential
-   boundaries exist but are undocumented, establish a minimal contract using
+   debugging, destructive testing, and production-like validation are allowed
+   to the depth justified by the task. Do **not** require a dedicated simulation
+   environment when local isolation, tests, containers, branches, or another
+   mechanism are sufficient for the project's actual risk.
+5. **Use existing environment documentation before creating new artifacts.**
+   Read `ENVIRONMENTS.md` when present, but also recognise equivalent runbooks,
+   repository guards, deployment maps, CI/CD rules, or operational documentation.
+   Create a minimal environment contract from
    [`templates/environment-contract.md`](../../templates/environment-contract.md)
-   before ACT. See
+   only when a real visibility gap would otherwise make consequential execution
+   ambiguous or unsafe. See
    [`docs/ENVIRONMENT_GUARDRAILS.md`](../../docs/ENVIRONMENT_GUARDRAILS.md).
 6. **Check access and constraints.** Do you (or the model) have what's needed
    — repository access, required context, time constraints, permissions?
@@ -55,9 +59,14 @@ environment boundary is unknown or stale.
    real proprietary data, secrets, or private material into artifacts tracked
    under this framework. If it does, flag this explicitly — synthetic or
    generalized versions only belong in public framework artifacts.
-8. **Check for environment mismatch.** If the requested work targets one
-   environment but the observed environment does not permit those actions,
-   stop. Do not improvise or assume equivalent safety.
+8. **Run the environment smell test.** Compare the expected environment,
+   workspace responsibility, output target, and observed state. Respond in
+   proportion to the consequence:
+   - **inform / continue** when the state is consistent or a deviation is low-risk and contained;
+   - **warn** when something is unexpected or inconsistent but not itself proof that continuing is unsafe;
+   - **stop** when there is a clear high-consequence mismatch, such as destructive
+     work targeting PROD when the ticket targets SIM or an explicit protected
+     repository rule would be violated.
 9. **Decide the path.** Is this ambiguous enough to need
    [`skills/resolve/skill.md`](../resolve/skill.md), clear enough to go to
    [`skills/write-spec/skill.md`](../write-spec/skill.md), or trivial enough
@@ -67,23 +76,26 @@ environment boundary is unknown or stale.
 ## Unknown environment rule
 
 If the active environment cannot be classified with sufficient confidence,
-treat it as **protected** for consequential actions.
+protect **consequential actions whose impact cannot be bounded**.
 
-Read-only discovery may continue where safe. Deployment, destructive
-commands, database writes, service restarts, publication, credential changes,
-and other consequential actions stop until the environment is classified.
+Read-only discovery and low-risk contained work may continue where safe.
+Deployment, destructive commands, database writes, service restarts,
+publication, credential changes, and other real-world side effects should
+pause when the operator cannot establish that the target is appropriate.
 
 ## Outputs
 
-- A short go/no-go decision, stated explicitly.
+- A short go/no-go decision where one is useful; routine safe work need not be burdened with ceremony.
 - The identified environment and safe experimentation boundary where relevant.
-- Any blockers or missing access surfaced immediately.
-- A minimal environment contract when the project needs one and none exists.
+- Any warnings, blockers, or missing access surfaced early.
+- A minimal environment contract only when the project genuinely needs one and no equivalent durable source exists.
 
 ## Checkpoint
 
-Environment mismatch, an unknown consequential environment, or a security /
-privacy concern is a stop-and-confirm point before execution.
+A **clear high-consequence environment mismatch**, an unknown consequential
+target, or a security/privacy concern is a stop-and-confirm point before
+execution. Lower-confidence inconsistencies should be surfaced as warnings
+with the next sensible check rather than treated as automatic blockers.
 
 ## Next skill
 
