@@ -10,17 +10,19 @@ skill, or artifacts to use.
 ## Behaviour
 
 1. **Inspect before asking.** Read git state, README/AGENTS, `ENVIRONMENTS.md`
-   when present, `docs/adr/`, any specification and decision ledger, the
-   ticket lifecycle dirs, and execution/verification reports or handoff notes.
-   Never ask for facts the repository can answer.
+   or equivalent environment/release documentation when present, `docs/adr/`,
+   any specification and decision ledger, the ticket lifecycle dirs, and
+   execution/verification reports or handoff notes. Never ask for facts the
+   repository can answer.
 2. **Recognise existing projects.** If the repository predates Operator or
    already has meaningful workflows that do not use Operator artifacts, offer
    the [`adopt`](../adopt/skill.md) assessment path rather than assuming the
    project must restart at ORIENT.
-3. **Establish environment safety before consequential execution.** Determine
-   where experimentation is safe and whether any live/protected environment
-   exists. If the project has operational boundaries but no durable environment
-   contract, route through [`preflight`](../preflight/skill.md) before ACT. See
+3. **Apply environment awareness in proportion to the work.** Determine where
+   experimentation is safe when the request can affect a consequential
+   environment, repository responsibility, deployment target, or real-world
+   side effect. Reuse existing guards and runbooks rather than creating new
+   ceremony. See
    [`docs/ENVIRONMENT_GUARDRAILS.md`](../../docs/ENVIRONMENT_GUARDRAILS.md).
 4. **Route from the earliest incomplete stage** (table below) — don't restart
    planning that already has durable output.
@@ -36,14 +38,14 @@ skill, or artifacts to use.
    [`docs/MODEL_ROUTING.md`](../../docs/MODEL_ROUTING.md) — cheapest reliable
    path, deterministic tools first.
 8. **Respect gates.** Never bypass verify/public-release sign-off, commit or
-   push approval, environment protections, or security/privacy rules.
+   push approval, explicit environment protections, or security/privacy rules.
 
 ## State routing
 
 | Inspection result | OPERATE | Route to |
 |---|---|---|
 | Existing project with non-Operator process | assessment | [`adopt`](../adopt/skill.md) |
-| Operational project; environment boundary unclear | ORIENT / safety | [`preflight`](../preflight/skill.md) |
+| Consequential work; environment boundary materially unclear | ORIENT / safety | [`preflight`](../preflight/skill.md) |
 | No sufficient durable plan/specification | ORIENT → PIN DOWN | [`resolve`](../resolve/skill.md) |
 | Spec exists; decisions unresolved | PIN DOWN | [`resolve`](../resolve/skill.md) |
 | Spec agreed; work unplanned | ESTABLISH | [`plan-tickets`](../plan-tickets/skill.md) |
@@ -55,14 +57,24 @@ skill, or artifacts to use.
 Blockers use the v0.2 taxonomy — specification → planning, capability → local
 escalation, reality/discovery → update durable truth (see
 [`docs/MODEL_ROUTING.md`](../../docs/MODEL_ROUTING.md#blockers-and-escalation)).
-Environment mismatch is an additional v0.3 stop condition: do not execute a
-ticket in an environment where its requested actions are not permitted.
+
+Environment observations use the v0.3 proportional response:
+
+- **continue** when expected and observed state align or the deviation is low-risk and contained;
+- **warn** when the state looks inconsistent and should be checked before the next consequential boundary;
+- **stop** only for a clear high-consequence mismatch or an explicit protected-boundary violation.
+
+The operator should be able to say "the implementation is complete, but the
+release state does not smell right" without treating correct implementation
+work as failed.
 
 ## Outputs
 
 Inferred current state and recommended next skill; any decision entries
 created while resolving. For an existing project, this may instead be a
 recommendation to run the adoption assessment before changing anything.
+Warnings should identify the observed inconsistency and the next useful check,
+not create a blocker by default.
 
 ## Next skill
 
