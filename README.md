@@ -12,10 +12,29 @@ operator-framework
 resolve -> spec -> route -> execute -> report -> verify
 ```
 
-**Version:** v0.2 (operational routing + verification contracts)
+**Version:** v0.3.0 (environment awareness + existing-project adoption)
 
-> A spec-driven, cost-aware methodology for planning, routing, executing and
-> validating work with AI agents.
+> A spec-driven, cost-aware methodology for keeping AI-assisted work on course from intent to verified product delivery.
+
+## The goal
+
+The goal of Operator is not to make a project follow a process for the sake of process.
+
+The goal is to deliver the **right product**, safely, with enough evidence that the work is actually complete and another human or model can understand the resulting state.
+
+Operator should take the simplest safe path to verified delivery. Add ceremony only where it materially improves correctness, recoverability, clarity, safety, or reviewability.
+
+```text
+IDEA
+  |
+  v
+understand -> define -> bound -> route -> build -> trace -> verify
+                                                    |
+                                                    v
+                                             PRODUCT DELIVERED
+```
+
+If the road ahead is clear, keep moving. If something looks inconsistent, surface it. If there is a high-confidence consequential mismatch, stop before causing damage.
 
 ## The problem
 
@@ -30,44 +49,27 @@ model executes Y well
 result is still wrong
 ```
 
-The failure happened *before* implementation: your intent, vocabulary,
-constraints, and assumptions were never made explicit, so the model inferred
-its own. What is clear in your head is not automatically available in the
-model's context. Operator Framework makes **resolving ambiguity before
-building** the first act of the lifecycle — the ORIENT stage.
+The failure happened *before* implementation: intent, vocabulary, constraints, environment, and assumptions were never made explicit, so the model inferred its own.
 
-The framework is **documentation-first**: scope, decisions, and state live in
-written artifacts — specs, tickets, a decision ledger, reports — not in a chat
-transcript. Conversation is how work gets *done*; documentation is the record
-of what was decided and what happened. It is also **model-agnostic**: it works
-with *a* capable AI model, or several routed by task, with no dependency on any
-specific vendor's API, branding, or tooling.
+Operator Framework makes **resolving ambiguity before building** the first act of the lifecycle and keeps the work aligned through execution, evidence, and verification.
 
-A request moves from ambiguity to an agreed problem, a written specification,
-bounded execution, structured evidence, and independent verification. Work
-that fails verification returns as a corrective ticket — it is never accepted
-on the executor's say-so.
+The framework is **documentation-first**: scope, decisions, environment boundaries, and state live in durable artifacts rather than only in a chat transcript. Conversation is how work gets done; documentation is the record of what was decided and what happened.
 
-Operator Framework standardises that lifecycle through the **OPERATE Method**.
+It is also **model-agnostic**. The method works with one capable AI model, several models routed by task, deterministic tools, coding agents, or human execution.
 
 ## The OPERATE Method
 
-This lifecycle has a human-facing name: **the OPERATE Method**. OPERATE is
-the methodology; the existing skills are the reusable operational steps that
-implement it, and they keep their own names. The canonical stages:
+OPERATE is the delivery lifecycle. The reusable skills implement it without coupling the method to a specific model or vendor.
 
 ```text
 O  ORIENT      resolve ambiguity and understand the problem
 P  PIN DOWN    vocabulary + decisions + specification
 E  ESTABLISH   create bounded tickets and acceptance criteria
-R  ROUTE       choose the right model or execution path for the task
+R  ROUTE       choose the right execution path
 A  ACT         execute the scoped work
 T  TRACE       return structured evidence and execution state
 E  EVALUATE    independently verify the result against the agreed contract
 ```
-
-Mapped to the plain-English workflow, each OPERATE stage sits above the real
-actions that realise it:
 
 ```text
 ┌───────────────┐
@@ -81,7 +83,7 @@ actions that realise it:
 resolve ambiguity
        │
        ▼
-understand the problem
+understand problem + environment
        │
        ▼
 ┌───────────────┐
@@ -117,8 +119,7 @@ acceptance criteria
 └──────┬────────┘
        │
        ▼
-choose execution
-      path
+choose execution path
        │
        ▼
 ┌───────────────┐
@@ -134,10 +135,7 @@ choose execution
 └──────┬────────┘
        │
        ▼
-structured report
-       │
-       ▼
-    evidence
+structured report + evidence
        │
        ▼
 ┌───────────────┐
@@ -153,122 +151,104 @@ structured report
    yes     no
     |       |
     v       v
-   DONE   corrective
-           ticket
+   DONE   corrective ticket
              |
              v
-      ┌───────────────┐
-      │   ESTABLISH   │
-      └──────┬────────┘
-             |
-             v
-        plan tickets
-             |
-             v
-      ┌───────────────┐
-      │     ROUTE     │
-      └──────┬────────┘
-             |
-             v
-       execution path
-             |
-             v
-            ACT
+          ESTABLISH
 ```
 
-The corrective loop re-enters at ESTABLISH and runs ROUTE → ACT → TRACE →
-EVALUATE again until the work is accepted.
+The corrective loop re-enters at ESTABLISH and runs ROUTE → ACT → TRACE → EVALUATE again until the work is accepted.
 
 Each stage answers a question:
 
-- **ORIENT** — *"What are we actually trying to do?"* Inspect the problem
-  and environment, resolve ambiguity, surface assumptions, identify
-  constraints and major unknowns before building (`preflight`, `resolve`).
-- **PIN DOWN** — *"What exactly have we agreed?"* Turn the resolved
-  understanding into durable artefacts: shared vocabulary, decisions (ADRs
-  where appropriate), requirements, scope boundaries, and the specification
-  (`DOMAIN.md`, decision ledger, `write-spec`).
-- **ESTABLISH** — *"How is the work bounded?"* Break the spec into small
-  tickets with acceptance criteria, dependencies, and severity
-  (`plan-tickets`, ticket lifecycle).
-- **ROUTE** — *"Who or what should perform this already-defined work?"*
-  Routing happens *after* the problem is understood and bounded; it is
-  execution allocation, weighing how clearly bounded the ticket is,
-  technical complexity, severity / blast radius, reversibility,
-  security/privacy exposure, cost, remaining uncertainty, and verification
-  strength ([`docs/MODEL_ROUTING.md`](docs/MODEL_ROUTING.md)). A route is
-  broader than model choice: it covers execution mechanism, context,
-  verification, and escalation, and is captured — where non-default — in
-  the ticket's **Route** block
-  ([`templates/ticket.md`](templates/ticket.md#route)). Doctrine favours
-  deterministic tools where correctness can be computed, and treats high
-  uncertainty as a planning signal rather than a model upgrade. ROUTE is not
-  "resolve ambiguity" — that is ORIENT's job.
-- **ACT** — execute the scoped ticket within its boundaries; stop on
-  blockers instead of inventing scope (`execute-ticket`).
-- **TRACE** — return structured evidence and execution state: files changed,
-  validation, evidence, deviations, failed checks, open questions, next
-  action. Within OPERATE, TRACE means *execution traceability* — not packet,
-  distributed, or telemetry tracing. The report is the portable interface
-  between the executor and the reviewer (`report`).
-- **EVALUATE** — independently verify the result against the agreed
-  contract (`verify`).
+- **ORIENT** — *What are we actually trying to do?* Inspect the problem and environment, resolve ambiguity, surface assumptions, constraints and major unknowns (`preflight`, `resolve`).
+- **PIN DOWN** — *What exactly have we agreed?* Turn the resolved understanding into durable artifacts: vocabulary, decisions, requirements, scope boundaries and specification.
+- **ESTABLISH** — *How is the work bounded?* Break the spec into small tickets with acceptance criteria, dependencies and severity.
+- **ROUTE** — *Who or what should perform this already-defined work?* Choose the execution mechanism, context, verification approach and escalation conditions.
+- **ACT** — execute the scoped ticket within its boundaries.
+- **TRACE** — return structured evidence: files changed, validation, deviations, failures, open questions and next state.
+- **EVALUATE** — independently verify the result against the agreed contract.
 
-Routing contrasts:
+## v0.3: environment awareness without unnecessary friction
 
-| Stage | README-only link change | Core architecture change |
-|---|---|---|
-| ORIENT | request understood | problem understood |
-| PIN DOWN | README only, exact URL, no redesign | architecture / spec agreed |
-| ESTABLISH | one bounded ticket | bounded architectural ticket |
-| ROUTE | lower-cost execution agent suffices | stronger reasoning model (risk remains high) |
+A safe project does not need a dedicated DEV, SIM, STAGING and PROD stack simply because a framework says so.
 
-EVALUATE is an independent review model: the implementation agent does not
-judge its own work complete. A typical workflow is a lower-cost execution
-agent that performs ACT and TRACE (report + evidence), followed by a strong
-reasoning reviewer who performs EVALUATE:
+It does need to know **where experimentation is safe** and what environments or repositories are consequential.
+
+Operator distinguishes between:
+
+- **repository/workspace responsibility** — what a repo or workspace is for, such as development, generated production output, public marketing or infrastructure;
+- **runtime environment** — where software actually runs, such as local, DEV, SIM, staging or PROD.
+
+See [`docs/ENVIRONMENT_GUARDRAILS.md`](docs/ENVIRONMENT_GUARDRAILS.md) and [`templates/environment-contract.md`](templates/environment-contract.md).
+
+Environment awareness follows a proportional response:
 
 ```text
-evaluate -- pass --> accept
-     |
-     +-- fail --> corrective ticket -> route -> act -> trace -> evaluate
+OBSERVE
+   |
+   v
+COMPARE EXPECTED vs OBSERVED
+   |
+   v
+DOES IT SMELL RIGHT?
+   |
+   +-- normal / low consequence ------> continue
+   |
+   +-- inconsistent / uncertain ------> flag + recommend a check
+   |
+   +-- clear high-consequence mismatch -> stop
 ```
 
-The stronger reviewer is not redoing the implementation; it asks "did the
-work actually satisfy what we agreed?" The evaluator may be a stronger
-reasoning model, a fresh session, a different capable model, or a human.
+This is intentionally **not** a blanket blocking system.
 
-Two lifecycle controls sit alongside OPERATE rather than inside the acronym:
+Examples:
 
-- **Handoff** — context compression for pausing and resuming work across
-  chats, models, machines, or long gaps.
-- **Public release** — the final publication, security, and privacy gate
-  before anything becomes public.
+- Work performed in SIM and output also targets SIM: continue.
+- Tests pass in SIM but release output unexpectedly points at PROD: flag the inconsistency before promotion.
+- A destructive operation targets PROD while the ticket explicitly targets SIM: stop.
+
+The principle is simple:
+
+> Guardrails should increase awareness before they increase friction.
+
+## v0.3: adopting Operator into existing projects
+
+Operator is not only for greenfield work.
+
+If a team discovers the framework after a project is already mature, `/operate` can route to the supporting [`adopt`](skills/adopt/skill.md) skill.
+
+The assessment maps existing practice onto OPERATE instead of forcing a rewrite.
+
+It classifies each relevant area as:
+
+- **Established** — the project already has a durable equivalent;
+- **Partial** — the behaviour exists but is incomplete, implicit or inconsistent;
+- **Missing** — a useful control or artifact is absent;
+- **Not needed yet** — adding it now would create more ceremony than value.
+
+The result should preserve what already works and recommend the **smallest useful migration path**.
+
+Real projects can also expose reusable lessons for Operator itself. An adoption assessment may identify a framework feedback candidate and suggest an issue or pull request, but it does not silently modify Operator or publish project-specific material.
 
 ## Why it works
 
-- **Resolve first** — align the user's intent with the model before building.
-  Ambiguity is cheapest to fix before implementation, not after.
-- **Write it down** — vocabulary, ADRs, and specs survive the session, so every
-  new model starts from the same agreed context instead of re-deriving it.
-- **Bound the work** — small tickets stop agents quietly expanding scope or
-  "improving" unrelated areas.
-- **Route intelligently** — use strong reasoning where ambiguity and risk
-  justify it, and cheaper executors for clear bounded work once the ticket
-  fixes the contract.
-- **Return evidence** — structured reports let a reviewer judge what happened
-  without replaying an entire session.
-- **Verify independently** — "done" is a claim until an independent check, with
-  human sign-off, confirms it against the spec.
+- **Resolve first** — align intent before building.
+- **Write down durable truth** — important decisions and state survive the session.
+- **Bound the work** — small tickets stop quiet scope expansion.
+- **Route intelligently** — use the cheapest reliable execution path to verified completion.
+- **Keep environment awareness proportional** — continue when things line up, flag suspicious mismatches, stop only for clear consequential risk.
+- **Return evidence** — reviewers can judge what happened without replaying the entire session.
+- **Verify independently** — "done" remains a claim until checked against the agreed contract.
+- **Preserve existing good practice** — adoption improves mature projects instead of forcing them to start again.
 
 ## Cost-aware model routing
 
-Routing is an optimization, not a rule: it changes as models, costs, and
-capabilities change, and no fixed savings are promised.
+Routing is an optimization, not a rule. It changes as models, costs and capabilities change, and no fixed savings are promised.
 
 > Spend intelligence where intelligence changes the outcome.
 
-```
+```text
   AMBIGUOUS / HIGH-RISK WORK
              |
              v
@@ -287,42 +267,35 @@ capabilities change, and no fixed savings are promised.
       STRONG REVIEW
 ```
 
-Cheaper execution is safe *because* the spec and ticket already fix the
-contract. See [`docs/MODEL_ROUTING.md`](docs/MODEL_ROUTING.md) for the full
-routing framework.
+Cheaper execution is safe when the work is well bounded and success can be verified. See [`docs/MODEL_ROUTING.md`](docs/MODEL_ROUTING.md).
 
 ## Quick start
 
-Start or resume a project with the entry skill:
+Start or resume a project with:
 
     /operate
 
-It inspects the repository, determines the current OPERATE stage, and
-routes into the workflow skills below — it does not restart planning that
-is already captured. To understand the framework from scratch instead:
+`/operate` inspects the repository, determines the current OPERATE state and routes to the appropriate workflow. It does not restart planning already captured in durable artifacts.
 
-1. Read [`PRINCIPLES.md`](PRINCIPLES.md) — operating principles, including the
-   Influence Note disclosure standard.
-2. Read [`AGENTS.md`](AGENTS.md) — how an AI agent should behave inside the
-   framework.
-3. Read [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — the end-to-end flow.
-4. Start at [`skills/preflight/skill.md`](skills/preflight/skill.md) and walk
-   through the skills in order.
-5. Study [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) to
-   see the framework applied to a full (synthetic) project.
+For an established project, it may recommend an adoption assessment rather than rebuilding the process from scratch.
+
+To understand the framework from scratch:
+
+1. Read [`PRINCIPLES.md`](PRINCIPLES.md).
+2. Read [`AGENTS.md`](AGENTS.md).
+3. Read [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md).
+4. Read [`docs/ENVIRONMENT_GUARDRAILS.md`](docs/ENVIRONMENT_GUARDRAILS.md).
+5. Start at [`skills/preflight/skill.md`](skills/preflight/skill.md) and walk through the lifecycle as deeply as the project needs.
+6. Study [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) for a complete synthetic example.
 
 ## Skills
 
-The front door is the `/operate` entry skill
-([`skills/operate/skill.md`](skills/operate/skill.md)): it inspects the
-repository, infers the current state, and routes into the workflow skills
-below. The lifecycle expands into nine sequential workflow skills, each
-documented independently in [`skills/`](skills/). `verify` and
-`public-release` are the framework's two mandatory human sign-off gates.
+The front door is [`skills/operate/skill.md`](skills/operate/skill.md). It inspects state and delegates into the lifecycle rather than adding another stage.
 
 | Skill | Purpose |
 |---|---|
-| `preflight` | Confirm environment, scope and safety |
+| `operate` | State-aware front door and routing entry point |
+| `preflight` | Confirm environment, scope, access and safety |
 | `resolve` | Remove ambiguity |
 | `write-spec` | Create the implementation contract |
 | `plan-tickets` | Break work into bounded units |
@@ -331,53 +304,49 @@ documented independently in [`skills/`](skills/). `verify` and
 | `verify` | Independently test acceptance |
 | `handoff` | Compress context for continuation |
 | `public-release` | Apply the final publication gate |
+| `adopt` | Assess an existing project and map it onto OPERATE without unnecessary churn |
 
-The templates each skill reads and writes live in [`templates/`](templates/).
-See [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) for how they fit together.
+`adopt` is a supporting skill rather than an extra OPERATE stage.
 
 ## Repository layout
 
 | Path | Purpose |
 |---|---|
-| [`PRINCIPLES.md`](PRINCIPLES.md) | Core operating principles, including the Influence Note disclosure standard. |
-| [`AGENTS.md`](AGENTS.md) | How any AI agent/model should behave when operating inside this framework. |
-| [`docs/`](docs/) | Methodology, model routing, domain framing, decision ledger, reporting, ticket system, handoff, and verification guidance. |
-| [`docs/adr/`](docs/adr/) | Architecture Decision Records explaining why the framework is built this way. |
-| [`skills/`](skills/) | The `/operate` entry skill plus nine sequential workflow skills that operationalize the methodology. |
-| [`templates/`](templates/) | Reusable templates referenced by the skills and docs. |
-| [`tickets/`](tickets/) | Lifecycle directories (`backlog` → `in-progress` → `review` → `done`) for real work using this framework. |
-| [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) | A complete worked example, end to end, using synthetic data only. |
+| [`VERSION`](VERSION) | Current framework version. |
+| [`CHANGELOG.md`](CHANGELOG.md) | Versioned framework evolution. |
+| [`PRINCIPLES.md`](PRINCIPLES.md) | Core operating principles. |
+| [`AGENTS.md`](AGENTS.md) | Behaviour expected from an AI agent/model using the framework. |
+| [`docs/`](docs/) | Methodology, environment guardrails, model routing, domain framing, decision ledger, reporting, ticket system, handoff and verification guidance. |
+| [`docs/adr/`](docs/adr/) | Architecture Decision Records explaining significant framework choices. |
+| [`skills/`](skills/) | `/operate`, supporting skills and lifecycle skills. |
+| [`templates/`](templates/) | Reusable project artifacts including environment and adoption contracts. |
+| [`tickets/`](tickets/) | Lifecycle directories (`backlog` → `in-progress` → `review` → `done`). |
+| [`examples/monitoring-dashboard/`](examples/monitoring-dashboard/) | Complete worked synthetic example. |
 
 ## Handoff is context compression
 
 > Preserve the right context, not every conversation turn.
 
-Long projects accumulate stale context — obsolete plans, superseded decisions,
-completed work, old logs. A handoff keeps the small working set that matters:
-current state, decisions, active work, blockers, and the exact next step. A
-fresh session or model can then continue cheaply and accurately instead of
-replaying the whole project. See
-[`docs/HANDOFF_PROTOCOL.md`](docs/HANDOFF_PROTOCOL.md).
+Long projects accumulate stale context: obsolete plans, superseded decisions, completed work and old logs. A handoff keeps the small working set that matters — current state, decisions, active work, blockers and the exact next step.
+
+See [`docs/HANDOFF_PROTOCOL.md`](docs/HANDOFF_PROTOCOL.md).
 
 ## Security and privacy
 
-- This repository, its examples, and its templates contain **synthetic data
-  only**. No production systems, customer data, credentials, or proprietary
-  material from any real project appear here or should ever be added.
-- Do not paste real secrets, tokens, internal URLs, or private business
-  logic into any ticket, spec, or report created from these templates.
-- See [`docs/METHODOLOGY.md#security-and-privacy`](docs/METHODOLOGY.md#security-and-privacy)
-  and [`skills/public-release/skill.md`](skills/public-release/skill.md) for the checks
-  run before anything derived from this framework is made public.
+- This repository, its examples and templates contain **synthetic data only**.
+- No production systems, customer data, credentials or proprietary material from a real project should be copied into the public framework repository.
+- Do not put real secrets, tokens, internal URLs or private business logic into public framework artifacts.
+- Real projects may use the method against private operational context; generalize any lesson before proposing it back to Operator.
+- See [`skills/public-release/skill.md`](skills/public-release/skill.md) for the explicit publication gate.
 
 ## Status
 
-v0.2 is a documentation-and-contracts release building on v0.1: ROUTE now
-covers execution mechanism, context, verification, and escalation, and
-tickets may carry non-default **Route** overrides so verification can be
-planned before execution. The methodology, skills, templates, and one
-worked example remain complete and usable today; programmatic enforcement
-remains out of scope.
+v0.3 extends the v0.2 routing and verification foundation with two practical capabilities learned from applying Operator to real project structures:
+
+1. **Environment and repository responsibility awareness** — identify where experimentation is safe, detect mismatches and respond proportionally rather than adding blanket gates.
+2. **Existing-project adoption** — assess what a mature project already does well, identify evidence-backed gaps and migrate only what adds value.
+
+The framework remains documentation-and-contract driven. Programmatic enforcement is intentionally out of scope until the methodology has earned it through repeated real-world use.
 
 ## License
 
