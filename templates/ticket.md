@@ -27,6 +27,21 @@ true now.
 - [ ] <Specific, checkable criterion 2>
 - [ ] <Add as many as needed — vague criteria are not acceptable>
 
+### Environment
+
+_Include when the ticket interacts with an operational, shared, public, or
+otherwise consequential environment. Delete for purely local/disposable work
+where the target is obvious and low-risk._
+
+- **Target environment:** <project-defined name: DEV / SIM / STAGING / PROD / PUBLIC / other>
+- **Permitted actions:** <what this ticket may do there>
+- **Forbidden actions:** <important boundary if non-obvious>
+- **Promotion / rollback:** <relevant path or reference to ENVIRONMENTS.md>
+
+The executor must stop on an environment mismatch rather than treating two
+environments as interchangeable. See
+[`docs/ENVIRONMENT_GUARDRAILS.md`](../docs/ENVIRONMENT_GUARDRAILS.md).
+
 ### Route
 
 _Include only when execution differs from the defaults in
